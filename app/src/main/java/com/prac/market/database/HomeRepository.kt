@@ -4,16 +4,10 @@ import com.prac.market.model.HomeSections
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class HomeRepository(private val homeDAO: HomeDAO) {
+class HomeRepository(private val apiService: ApiService) {
     suspend fun getHomeSections():HomeSections{
         return withContext(Dispatchers.IO){
-            homeDAO.getHomeSections()
-        }
-    }
-
-    suspend fun saveHomeSection(homeSections: HomeSections){
-        withContext(Dispatchers.IO){
-            homeDAO.insertHomeSections(homeSections)
+            apiService.getHomeSections()
         }
     }
 }

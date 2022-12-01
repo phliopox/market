@@ -74,8 +74,11 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.1.0')
     implementation 'com.google.firebase:firebase-analytics'
 
-    //Retrofit
+    //Retrofit & Network
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation platform("com.squareup.okhttp3:okhttp-bom:4.9.0") //네트워크 통신 결과 log 로 상세히 출력 가능
+    implementation "com.squareup.okhttp3:okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor"
 
 }

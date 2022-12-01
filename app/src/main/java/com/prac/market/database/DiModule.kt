@@ -1,13 +1,15 @@
 package com.prac.market.database
 
-import android.content.Context
-import androidx.room.Room
-import com.prac.market.model.HomeSections
+import com.prac.market.API_BASE_URL
+import com.prac.market.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 /**
@@ -16,26 +18,40 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class DiModule {
+
+    @Provides
+    fun provideBaseUrl() = API_BASE_URL
+
     @Singleton
     @Provides
-    fun provideHomeDatabase(@ApplicationContext context: Context) : HomeDatabase{
-        return Room
-            .databaseBuilder(
-                context,
-                HomeDatabase::class.java,
-                HomeDatabase.DATABASE_NAME)
+    fun provideOKHttpClient() = if (BuildConfig.DEBUG){
+        val logger = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BASIC }
+
+        OkHttpClient.Builder()
+            .addInterceptor(logger)
+            .build()
+    }else{
+        OkHttpClient.Builder().build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit{
+        return Retrofit.Builder()
+            .baseUrl(provideBaseUrl())
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideHomeDAO(homeDB : HomeDatabase ): HomeDAO{
-        return homeDB.homeDao()
+    fun provideApiService(retrofit: Retrofit):ApiService{
+            return retrofit.create(ApiService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideHomeRepository(homeDAO: HomeDAO):HomeRepository{
-        return HomeRepository(homeDAO)
-    }
+    fun provideHomeRepository(apiService: ApiService) = HomeRepository(apiService)
 }
