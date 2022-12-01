@@ -3,13 +3,17 @@ package com.prac.market.model
 import com.google.gson.annotations.SerializedName
 
 data class HomeSections(
-    val home_sections : List<Banners>
+    var home_sections : List<Banners>
     )
 
 data class Banners (
-    val title : String,
+    var title : String,
     val banners : List<Banner>
     )
+
+data class Title(
+    val text : String
+)
 
 data class Banner (
     val id : String,

@@ -10,7 +10,7 @@
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/navigation_market"
-        android:name="com.prac.market.MarketFragment"
+        android:name="com.prac.market.HomeFragment"
         android:label="MarketFragment" />
     <fragment
         android:id="@+id/navigation_account"
