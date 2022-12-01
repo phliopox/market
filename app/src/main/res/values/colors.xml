@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="market_white">#FFFFFFFF</color>
+    <color name="market_cornflower_blue">#419bf9</color>
+    <color name="market_green">#c8cf2d</color>
+    <color name="market_peach">#ee6723</color>
+    <color name="market_orange">#f69833</color>
+    <color name="market_light_orange">#fdbd39</color>
+    <color name="market_yellow">#fecf33</color>
+    <color name="market_teflon">#554d56</color>
+    <color name="market_gandalf">#979197</color>
+    <color name="market_clooney">#c1bec1</color>
+    <color name="market_karl">#edeced</color>
+    <color name="market_whitey">#f7f7f7</color>
+    <color name="market_snowman">#fbfbfb</color>
+</resources>

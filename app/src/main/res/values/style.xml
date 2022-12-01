@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="radius5"><item name="cornerSize">5dp</item></style>
+
+
+    <style name="SubTitle15" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="SubTitle15.White">
+        <item name="android:textColor">@color/market_white</item>
+    </style>
+    <style name="SubTitle15.Gandalf">
+        <item name="android:textColor">@color/market_gandalf</item>
+    </style>
+    <style name="Headline28" parent="TextAppearance.AppCompat.Headline"/>
+    <style name="Headline28.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Headline28.Bold.White">
+        <item name="android:textColor">@color/market_white</item>
+    </style>
+    <style name="Headline17" parent="TextAppearance.AppCompat.Headline"><item name="android:textSize">17sp</item></style>
+    <style name="Headline17.teflon">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/market_teflon</item>
+    </style>
+    <style name="Title22" parent="TextAppearance.AppCompat.Title"/>
+    <style name="Title22.Bold"><item name="android:textStyle">bold</item> </style>
+    <style name="Title22.Bold.White"><item name="android:textColor">@color/market_white</item></style>
+    <style name="Title22.Bold.Teflon"><item name="android:textColor">@color/market_teflon</item></style>
+</resources>

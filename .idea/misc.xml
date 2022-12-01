@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable-v24/ic_wish_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_account_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_account_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_create_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_create_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_home_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_home_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_launcher_background.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_market_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_market_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_whislist_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_wish_off.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_account.xml" value="0.334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_create.xml" value="0.334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_home.xml" value="0.3425" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_market.xml" value="0.334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_wish.xml" value="0.334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/account_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/home_fragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/home_section.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/home_section_title.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/item_daily_quest.xml" value="0.33" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/item_popular_product.xml" value="1.0" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/item_seasonal_bundle.xml" value="0.33" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/market_fragment.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/wish_fragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/menu/navigation_main_menu.xml" value="0.28034188034188035" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
