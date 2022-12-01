@@ -2,7 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "kotlin-kapt"
-    id("com.google.dagger.hilt.android")
+    id "com.google.dagger.hilt.android"
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -42,7 +43,7 @@ android {
 dependencies {
     def nav_version = "2.5.3"
     def room_version = "2.4.3"
-
+    def retrofit_version = "2.9.0"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
@@ -65,4 +66,16 @@ dependencies {
     //Room
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.10'
+
+    //FireBase
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+
 }
