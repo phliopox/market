@@ -33,12 +33,18 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
 
+        setHomeTopText()
+        setHomeSectionBanners()
+    }
+
+
+    private fun setHomeTopText() {
         val date = Date(System.currentTimeMillis())
         val format = SimpleDateFormat("hh")
         val currentHour = (format.format(date)).toInt()
 
 
-        Log.d("currentHour ! " , currentHour.toString())
+        Log.d("currentHour ! ", currentHour.toString())
         val label = when (currentHour) {
             in 5..10 -> {
                 "Good Morning! \nGet Ready For Your Perfect Day"
@@ -53,14 +59,18 @@ class HomeFragment : Fragment() {
                 "Good Night"
             }
         }
-        binding.homeLocationText.text="San Francisco"
-        binding.homeMainBannerTitle.text=label
 
+        binding.homeLocationText.text = "San Francisco"
+        binding.homeMainBannerTitle.text = label
+    }
+
+    private fun setHomeSectionBanners() {
         val homeSectionTitleAdapter = HomeSectionTitleAdapter()
         val homeBannerAdapter = QuestBannerAdapter()
-        binding.rvHomeSection.adapter = ConcatAdapter(homeSectionTitleAdapter,homeBannerAdapter)
-        viewModel.homeData.observe(viewLifecycleOwner){
-            homeData->homeSectionTitleAdapter.submitList(homeData)
+        binding.rvHomeSection.adapter = ConcatAdapter(homeSectionTitleAdapter, homeBannerAdapter)
+        viewModel.homeData.observe(viewLifecycleOwner) { homeData ->
+            homeSectionTitleAdapter.submitList(homeData)
         }
     }
+
 }
