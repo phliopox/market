@@ -6,18 +6,18 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.prac.market.ui.HomeFragment"
+        android:name="com.prac.market.ui.home.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/navigation_market"
-        android:name="com.prac.market.HomeFragment"
+        android:name="com.prac.market.ui.market.MarketFragment"
         android:label="MarketFragment" />
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.prac.market.AccountFragment"
+        android:name="com.prac.market.ui.account.AccountFragment"
         android:label="AccountFragment" />
     <fragment
         android:id="@+id/navigation_wish"
-        android:name="com.prac.market.WishFragment"
+        android:name="com.prac.market.ui.wish.WishFragment"
         android:label="WishFragment" />
 </navigation>

@@ -15,12 +15,13 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/daily_quest_background"
-            android:layout_width="240dp"
+            android:layout_width="230dp"
             android:layout_height="120dp"
-            android:src="@{banner.imageUrl}"
+            imageUrl="@{banner.imageUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/radius5"
+            android:scaleType="centerCrop"
             tools:src="@color/market_teflon" />
 
         <TextView
@@ -33,7 +34,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
-            android:text="@{banner.imageUrl}"
+            android:text="@{banner.label}"
             app:layout_constraintBottom_toBottomOf="@id/daily_quest_background"
             app:layout_constraintEnd_toEndOf="@id/daily_quest_background"
             app:layout_constraintStart_toStartOf="@id/daily_quest_background"

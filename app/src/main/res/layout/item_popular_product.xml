@@ -1,60 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<com.google.android.material.imageview.ShapeableImageView
-    android:id="@+id/iv_popular_product_image"
-    android:layout_width="120dp"
-    android:layout_height="120dp"
-    android:scaleType="centerCrop"
-    app:shapeAppearanceOverlay="@style/radius5"
-    android:src="@color/market_light_orange"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/iv_popular_product_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        app:layout_constraintStart_toStartOf="@id/iv_popular_product_image"
-        app:layout_constraintEnd_toEndOf="@id/iv_popular_product_image"
-        app:layout_constraintTop_toBottomOf="@id/iv_popular_product_image"
-        tools:text="Dalgona coffee setr"
-        style="@style/Headline17.teflon"
-        />
-    <TextView
-        android:id="@+id/iv_popular_product_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/iv_popular_product_label"
-        app:layout_constraintEnd_toEndOf="@id/iv_popular_product_label"
-        app:layout_constraintTop_toBottomOf="@id/iv_popular_product_label"
-        android:maxLines="1"
-        android:ellipsize="end"
-        style="@style/SubTitle15.Gandalf"
-        tools:text="Korean style"/>
-    <ImageView
-        android:id="@+id/ic_star"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:src="@drawable/ic_star"
-        app:layout_constraintTop_toBottomOf="@+id/iv_popular_product_description"
-        app:layout_constraintStart_toStartOf="@id/iv_popular_product_description"
-        />
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="12dp"
-        app:layout_constraintStart_toEndOf="@id/ic_star"
-        app:layout_constraintTop_toTopOf="@id/ic_star"
-        app:layout_constraintBottom_toBottomOf="@id/ic_star"
-        app:layout_constraintEnd_toEndOf="@id/iv_popular_product_description"
-        android:layout_marginEnd="10dp"
-        android:textSize="11sp"
-        android:layout_marginBottom="3dp"
-        tools:text="4.9"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="banner"
+            type="com.prac.market.model.Banner" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ic_star"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="@id/iv_popular_product_description"
+            app:layout_constraintTop_toBottomOf="@+id/iv_popular_product_description" />
+
+        <TextView
+            android:id="@+id/iv_popular_product_description"
+            style="@style/SubTitle15.Gandalf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{banner.description}"
+            app:layout_constraintEnd_toEndOf="@id/iv_popular_product_label"
+            app:layout_constraintStart_toStartOf="@id/iv_popular_product_label"
+            app:layout_constraintTop_toBottomOf="@id/iv_popular_product_label"
+            tools:text="Korean style" />
+
+        <TextView
+            android:id="@+id/iv_popular_product_label"
+            style="@style/Headline17.teflon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{banner.label}"
+            app:layout_constraintEnd_toEndOf="@id/iv_popular_product_image"
+            app:layout_constraintStart_toStartOf="@id/iv_popular_product_image"
+            app:layout_constraintTop_toBottomOf="@id/iv_popular_product_image"
+            tools:text="Dalgona coffee setr" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="11sp"
+            android:text="@{String.valueOf(banner.starPoint)}"
+            app:layout_constraintBottom_toBottomOf="@id/ic_star"
+            app:layout_constraintEnd_toEndOf="@id/iv_popular_product_description"
+            app:layout_constraintStart_toEndOf="@id/ic_star"
+            app:layout_constraintTop_toTopOf="@id/ic_star"
+            tools:text="4.9" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_popular_product_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            imageUrl="@{banner.imageUrl}"
+            tools:src="@color/market_light_orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/radius5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

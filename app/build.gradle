@@ -44,6 +44,8 @@ dependencies {
     def nav_version = "2.5.3"
     def room_version = "2.4.3"
     def retrofit_version = "2.9.0"
+    def glideVersion = '4.12.0'
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
@@ -82,5 +84,7 @@ dependencies {
     implementation platform("com.squareup.okhttp3:okhttp-bom:4.9.0") //네트워크 통신 결과 log 로 상세히 출력 가능
     implementation "com.squareup.okhttp3:okhttp"
     implementation "com.squareup.okhttp3:logging-interceptor"
+    implementation "com.github.bumptech.glide:glide:$glideVersion" //Glide (이미지 url 로딩)
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
 }

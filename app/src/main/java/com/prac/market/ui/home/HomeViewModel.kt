@@ -1,4 +1,4 @@
-package com.prac.market.ui
+package com.prac.market.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

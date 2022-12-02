@@ -1,19 +1,15 @@
-package com.prac.market
+package com.prac.market.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import com.prac.market.databinding.FragmentHomeBinding
-import com.prac.market.ui.HomeBannerAdapter
-import com.prac.market.ui.HomeSectionTitleAdapter
-import com.prac.market.ui.HomeViewModel
+import com.prac.market.ui.home.itemadapter.QuestBannerAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -34,7 +30,7 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         val homeSectionTitleAdapter = HomeSectionTitleAdapter()
-        val homeBannerAdapter = HomeBannerAdapter()
+        val homeBannerAdapter = QuestBannerAdapter()
         binding.rvHomeSection.adapter = ConcatAdapter(homeSectionTitleAdapter,homeBannerAdapter)
         viewModel.homeData.observe(viewLifecycleOwner){
             homeData->homeSectionTitleAdapter.submitList(homeData)

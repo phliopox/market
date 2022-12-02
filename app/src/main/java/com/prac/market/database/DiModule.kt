@@ -1,6 +1,6 @@
 package com.prac.market.database
 
-import com.prac.market.API_BASE_URL
+import com.prac.market.core.API_BASE_URL
 import com.prac.market.BuildConfig
 import dagger.Module
 import dagger.Provides
