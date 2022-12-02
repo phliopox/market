@@ -1,5 +1,6 @@
 package com.prac.market.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ConcatAdapter
@@ -54,6 +55,7 @@ class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.Hom
         fun bind(banner: Banners) {
             binding.banners = banner
             binding.executePendingBindings()
+            Log.d("HomeBanner Response : ",binding.banners.toString() )
             when (banner.title) {
                 "quest" ->
                     nestedQuestAdapter.submitList(banner.banners)
