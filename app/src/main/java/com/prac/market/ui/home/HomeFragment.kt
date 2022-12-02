@@ -1,6 +1,7 @@
 package com.prac.market.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.prac.market.databinding.FragmentHomeBinding
 import com.prac.market.ui.home.itemadapter.QuestBannerAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -28,6 +31,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
+
+
+        val date = Date(System.currentTimeMillis())
+        val format = SimpleDateFormat("hh")
+        val currentHour = (format.format(date)).toInt()
+
+
+        Log.d("currentHour ! " , currentHour.toString())
+        val label = when (currentHour) {
+            in 5..10 -> {
+                "Good Morning! \nGet Ready For Your Perfect Day"
+            }
+            in 11..15 -> {
+                "Good afternoon.\nTake a break from work"
+            }
+            in 16..21 -> {
+                "Good Evening. \n"
+            }
+            else -> {
+                "Good Night"
+            }
+        }
+        binding.homeLocationText.text="San Francisco"
+        binding.homeMainBannerTitle.text=label
 
         val homeSectionTitleAdapter = HomeSectionTitleAdapter()
         val homeBannerAdapter = QuestBannerAdapter()
