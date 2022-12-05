@@ -8,6 +8,6 @@ interface ApiService {
     @GET("home_sections.json") // 홈 섹션 배너 전체 get
     suspend fun getHomeSections(): List<Banners>
 
-    @GET("")
+    @GET("welcome_page.json")
     suspend fun getWelcomePage() : List<WelcomeBanner>
 }

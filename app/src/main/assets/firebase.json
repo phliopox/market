@@ -1,0 +1,92 @@
+{
+  "home_sections": [
+    { "title":"quest",
+      "banners" : [
+        {
+          "id": "quest_1",
+          "label" : "Review 10 snacks of guilty pleasure",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"
+        },
+        {
+          "id": "quest_2",
+          "label" : "Review 3 your best ice cream",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"
+        },
+        {"id": "quest_3",
+          "label" : "Review 5 candies of guilty pleasure",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"}
+      ]
+    }
+  ,{"title": "popular_product",
+      "banners": [
+        {
+          "id": "pp_1",
+          "label" : "Dalgona coffee package",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+          "description": "Korean style",
+          "star_point": "5"
+        },{
+          "id": "pp_2",
+          "label" : "Seeds",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+          "description": "For afternoon tea",
+          "star_point": "4.8"
+        },{
+          "id": "pp_3",
+          "label" : "Dorayaki",
+          "image_url" : "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+          "description": "Japanese snack",
+          "star_point": "3.9"
+        }
+      ]
+    },
+    {"title": "season_bundle",
+      "banners": [
+        {
+          "id": "season_1",
+          "label" : "Mooncakes",
+          "image_url_list": ["https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"],
+          "star_point": "4.5"
+        },{
+          "id": "season_2",
+          "label" : "Dry fruits",
+          "image_url_list": ["https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"],
+          "star_point": "3.5"
+        },{
+          "id": "season_3",
+          "label" : "Nuts",
+          "image_url_list": ["https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg",
+            "https://user-images.githubusercontent.com/91457591/204942505-9d40fbd1-ae3d-49b6-93b5-a940e5341648.jpg"],
+          "star_point": "5"
+        }
+      ]
+    }
+
+  ],
+
+  "welcome_page" : [
+    {
+      "index": "1",
+      "image_url": "https://user-images.githubusercontent.com/91457591/205563697-ad6fce3c-c49b-40f0-997f-94d38d6dea9c.png",
+      "text": "Hand-pickle high quality snacks"
+    },
+    {
+      "index": "2",
+      "image_url": "https://user-images.githubusercontent.com/91457591/205568364-7d8d70bd-4858-42bc-9691-bd0e932dfbb8.png",
+      "text": "Shop global. Mind-blownly affordable"
+    },
+    {
+      "index": "3",
+      "image_url": "https://user-images.githubusercontent.com/91457591/205568367-0dadbaf5-0f45-4eec-b0ec-239dd8a7bed1.png",
+      "text": "Deliver on the promise of time"
+    }
+  ]
+}

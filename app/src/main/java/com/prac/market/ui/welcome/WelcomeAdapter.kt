@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.prac.market.databinding.ItemWelcomeBinding
 import com.prac.market.model.WelcomeBanner
+import dagger.hilt.android.AndroidEntryPoint
 
 class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder>(WelcomeDiffCallBack()){
 

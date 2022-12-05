@@ -9,7 +9,10 @@ import androidx.databinding.DataBindingUtil
 import com.prac.market.MainActivity
 import com.prac.market.R
 import com.prac.market.databinding.ActivityWelcomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
 
