@@ -15,4 +15,21 @@
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Market.Splash" parent="Theme.SplashScreen">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+        <item name="postSplashScreenTheme">@style/Theme.Market</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+    </style>
+    <!--
+     <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+
+     </item>
+    <item>
+        <bitmap
+            android:width="240dp"
+            android:height="240dp"
+            android:gravity="center"
+            android:src="@drawable/splash_logo" />
+    </item>
+-->
 </resources>

@@ -1,7 +1,7 @@
 package com.prac.market.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,14 +38,11 @@ class HomeFragment : Fragment() {
     }
 
 
+    @SuppressLint("SimpleDateFormat")
     private fun setHomeTopText() {
         val date = Date(System.currentTimeMillis())
         val format = SimpleDateFormat("hh")
-        val currentHour = (format.format(date)).toInt()
-
-
-        Log.d("currentHour ! ", currentHour.toString())
-        val label = when (currentHour) {
+        val label = when ((format.format(date)).toInt()) {
             in 5..10 -> {
                 "Good Morning! \nGet Ready For Your Perfect Day"
             }
