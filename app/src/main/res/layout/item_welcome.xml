@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="welcomeBanner"
+            type="com.prac.market.model.WelcomeBanner" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/welcome_iv"
+            android:layout_width="390dp"
+            android:layout_height="390dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            imageUrl="@{welcomeBanner.imageUrl}"
+            tools:src="@color/market_peach" />
+
+        <TextView
+            style="@style/Title34.Peach"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@{welcomeBanner.text}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_iv"
+            tools:text="Hand-pickle high quality snacks" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

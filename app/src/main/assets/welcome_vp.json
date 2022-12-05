@@ -1,0 +1,19 @@
+{
+  "welcome_page" : [
+    {
+    "index": "1",
+    "image_url": "https://user-images.githubusercontent.com/91457591/205563697-ad6fce3c-c49b-40f0-997f-94d38d6dea9c.png",
+    "text": "Hand-pickle high quality snacks"
+    },
+    {
+    "index": "2",
+    "image_url": "https://user-images.githubusercontent.com/91457591/205568364-7d8d70bd-4858-42bc-9691-bd0e932dfbb8.png",
+    "text": "Shop global. Mind-blownly affordable"
+    },
+    {
+      "index": "3",
+      "image_url": "https://user-images.githubusercontent.com/91457591/205568367-0dadbaf5-0f45-4eec-b0ec-239dd8a7bed1.png",
+      "text": "Deliver on the promise of time"
+    }
+  ]
+}

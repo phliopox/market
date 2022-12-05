@@ -2,18 +2,10 @@ package com.prac.market.model
 
 import com.google.gson.annotations.SerializedName
 
-data class HomeSections(
-    val home_sections : List<Banners>
-    )
-
 data class Banners (
     val title : String,
     val banners : List<Banner>
     )
-
-data class Title(
-    val text : String
-)
 
 data class Banner (
     val id : String,
@@ -23,3 +15,13 @@ data class Banner (
     val description : String?,
     @SerializedName("star_point") val starPoint : Double?
     )
+
+/*
+data class Title(
+    val text : String
+)
+data class HomeSections(
+    val home_sections : List<Banners>
+    )
+
+*/
