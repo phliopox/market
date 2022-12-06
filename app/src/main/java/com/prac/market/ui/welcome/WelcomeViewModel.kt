@@ -1,5 +1,6 @@
 package com.prac.market.ui.welcome
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,6 +21,7 @@ class WelcomeViewModel @Inject constructor(private val repository: WelcomeReposi
     private fun loadData(){
         viewModelScope.launch {
             val data= repository.getWelcomePage()
+            Log.d("WelcomeViewModel",data.toString())
             _welcomeBanner.value= data
         }
     }

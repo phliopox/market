@@ -54,4 +54,9 @@ class DiModule {
     @Singleton
     @Provides
     fun provideHomeRepository(apiService: ApiService) = HomeRepository(apiService)
+
+
+    @Singleton
+    @Provides
+    fun provideWelcomeRepository(apiService: ApiService)=WelcomeRepository(apiService)
 }
