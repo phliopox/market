@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import com.prac.market.databinding.FragmentHomeBinding
 import com.prac.market.ui.home.itemadapter.QuestBannerAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 

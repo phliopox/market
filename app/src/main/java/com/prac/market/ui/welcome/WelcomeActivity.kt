@@ -1,28 +1,38 @@
 package com.prac.market.ui.welcome
 
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.prac.market.R
-import com.prac.market.databinding.ActivityWelcomeBinding
+import com.prac.market.databinding.FragmentWelcomeBinding
 
 
 class WelcomeActivity : Fragment() {
-    private lateinit var binding: ActivityWelcomeBinding
+    private lateinit var binding: FragmentWelcomeBinding
     private val viewModel : WelcomeViewModel by viewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("WelcomeActivity","호출됨.")
 
-       // setContentView(R.layout.activity_welcome)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentWelcomeBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_welcome)
-        binding.vpWelcome.adapter = WelcomeAdapter()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.lifecycleOwner = viewLifecycleOwner
 
+        super.onViewCreated(view, savedInstanceState)
+        val welcomeAdapter = WelcomeAdapter()
+        binding.vpWelcome.adapter = welcomeAdapter
+        viewModel.welcomeBanner.observe(viewLifecycleOwner){
+            welcomeBanner -> welcomeAdapter.submitList(welcomeBanner)
+        }
 
 
     }
+
 }
