@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.prac.market.ui.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.prac.market.ui.login.LoginFragment"
+        android:label="LoginFragment" />
 </navigation>

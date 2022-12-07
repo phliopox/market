@@ -13,27 +13,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/welcome_start_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:navGraph="@navigation/navigation_welcome"
             app:defaultNavHost="true"
             />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/welcome_start_btn"
-            style="@style/Headline17.White"
-            android:layout_width="358dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/peach_radius8_btn"
-            android:paddingBottom="16dp"
-            android:paddingEnd="24dp"
-            android:paddingStart="24dp"
-            android:paddingTop="16dp"
-            android:text="@string/get_started"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
