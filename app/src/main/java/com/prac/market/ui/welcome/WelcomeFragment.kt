@@ -49,6 +49,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun clickStartBtn() {
-        welcome_start_btn.setOnClickListener { findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment) }
+        welcome_start_btn.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment) }
     }
 }
