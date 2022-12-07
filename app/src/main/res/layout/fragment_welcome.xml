@@ -23,10 +23,11 @@
             android:id="@+id/welcome_iv_indicator"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_welcome"
+            app:tabBackground="@drawable/selector_welcome_indicator"
+            app:tabIndicatorHeight="0dp"
             app:tabGravity="center" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

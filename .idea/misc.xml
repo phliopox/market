@@ -5,15 +5,20 @@
       <map>
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable-v24/ic_wish_on.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/background_splash_screen.xml" value="0.14" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/background_welcome_indicator.xml" value="0.2245" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_account_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_account_on.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_create_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_create_on.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_home_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_home_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_indicator.xml" value="0.2245" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_indicator_selected.xml" value="0.2245" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_indicator_unselected.xml" value="0.2245" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_launcher_background.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_market_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_market_on.xml" value="0.236" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_selected.xml" value="0.1775" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_whislist_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/ic_wish_off.xml" value="0.236" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/peach_radius8_btn.xml" value="0.3125" />
@@ -28,7 +33,7 @@
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_account.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_market.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_welcome.xml" value="0.22" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_wish.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/home_fragment.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/home_section.xml" value="0.3651041666666667" />
