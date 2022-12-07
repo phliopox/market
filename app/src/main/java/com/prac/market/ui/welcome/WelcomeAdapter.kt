@@ -1,5 +1,6 @@
 package com.prac.market.ui.welcome
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,7 +8,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.prac.market.databinding.ItemWelcomeBinding
 import com.prac.market.model.WelcomeBanner
-import dagger.hilt.android.AndroidEntryPoint
 
 class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder>(WelcomeDiffCallBack()){
 
@@ -20,11 +20,12 @@ class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder
         holder.bind(getItem(position))
     }
 
-    inner class WelcomeViewHolder(private val binding: ItemWelcomeBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class WelcomeViewHolder(private val binding: ItemWelcomeBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(banner: WelcomeBanner) {
             binding.welcomeBanner = banner
+            Log.d("WelcomeAdapter",banner.toString())
+            Log.d("binding.rooot" , binding.root.toString())
             binding.executePendingBindings()
         }
 
@@ -34,7 +35,7 @@ class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder
 
 class WelcomeDiffCallBack : DiffUtil.ItemCallback<WelcomeBanner>(){
     override fun areItemsTheSame(oldItem: WelcomeBanner, newItem: WelcomeBanner): Boolean {
-        return oldItem.index == newItem.index
+        return oldItem.index ==newItem.index
     }
 
     override fun areContentsTheSame(oldItem: WelcomeBanner, newItem: WelcomeBanner): Boolean {

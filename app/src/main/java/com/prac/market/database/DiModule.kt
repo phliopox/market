@@ -58,5 +58,6 @@ class DiModule {
 
     @Singleton
     @Provides
-    fun provideWelcomeRepository(apiService: ApiService)=WelcomeRepository(apiService)
+    fun provideWelcomeRepository(apiService: ApiService) = WelcomeRepository(apiService)
+
 }
