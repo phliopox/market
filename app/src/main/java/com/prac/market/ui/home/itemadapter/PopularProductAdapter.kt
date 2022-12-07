@@ -8,7 +8,8 @@ import com.prac.market.databinding.ItemPopularProductBinding
 import com.prac.market.model.Banner
 
 class PopularProductAdapter :ListAdapter<Banner, PopularProductAdapter.PopularProductViewHolder>(BannerDiffCallBack()){
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularProductViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularProductViewHolder {
             val binding = ItemPopularProductBinding.inflate(LayoutInflater.from(parent.context),parent,false)
             return PopularProductViewHolder(binding)
         }

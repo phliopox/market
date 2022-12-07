@@ -30,10 +30,7 @@ class WelcomeFragment : Fragment() {
         val welcomeAdapter = WelcomeAdapter()
         binding.vpWelcome.adapter = welcomeAdapter
         viewModel.welcomeBanner.observe(viewLifecycleOwner){
-
                 welcomeBanner -> welcomeAdapter.submitList(welcomeBanner)
-            Log.d("WelcomeFragment",welcomeBanner.toString())
-
         }
     }
 }

@@ -15,13 +15,3 @@ data class Banner (
     val description : String?,
     @SerializedName("star_point") val starPoint : Double?
     )
-
-/*
-data class Title(
-    val text : String
-)
-data class HomeSections(
-    val home_sections : List<Banners>
-    )
-
-*/

@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.prac.market.databinding.ItemSeasonalBundleBinding
 import com.prac.market.model.Banner
-import com.prac.market.ui.home.HomeDiffUtil
 
 class SeasonalProductAdapter :ListAdapter<Banner,SeasonalProductAdapter.SeasonalProductViewHolder>(BannerDiffCallBack()){
 override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):SeasonalProductViewHolder {

@@ -1,6 +1,5 @@
 package com.prac.market.ui.welcome
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,8 +10,9 @@ import com.prac.market.model.WelcomeBanner
 
 class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder>(WelcomeDiffCallBack()){
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WelcomeViewHolder {
-        val binding = ItemWelcomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+       val binding = ItemWelcomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WelcomeViewHolder(binding)
     }
 
@@ -24,8 +24,6 @@ class WelcomeAdapter :ListAdapter<WelcomeBanner,WelcomeAdapter.WelcomeViewHolder
 
         fun bind(banner: WelcomeBanner) {
             binding.welcomeBanner = banner
-            Log.d("WelcomeAdapter",banner.toString())
-            Log.d("binding.rooot" , binding.root.toString())
             binding.executePendingBindings()
         }
 
