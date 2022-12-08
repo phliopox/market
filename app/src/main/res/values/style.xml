@@ -35,6 +35,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/market_white</item>
     </style>
+    <style name="Title10" parent="Title22"><item name="android:textSize">10dp</item><item name="android:textColor">@color/market_gandalf</item></style>
 
     <style name="Title20" parent="TextAppearance.AppCompat.Title"><item name="android:textSize">18sp</item></style>
     <style name="Title20.White"><item name="android:textColor">@color/market_white</item></style>

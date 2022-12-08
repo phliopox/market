@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragmentText"
+            type="com.prac.market.model.FragmentText" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,9 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_fg_email"
-            tools:text="steve_Donuto@gamil.com"
-
-            />
+            tools:text="steve_Donuto@gamil.com" />
 
         <ImageView
             android:id="@+id/sign_fg_logo"
@@ -70,7 +74,8 @@
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:paddingTop="24dp"
-            android:text="Welcome back!"
+            android:text="@{fragmentText.title}"
+            tools:text="Welcome back!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline2" />
@@ -78,22 +83,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="1dp"
             android:padding="16dp"
             android:text="@string/privacy_poilcy_and_tos_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            style="@style/Title10"
             app:layout_constraintTop_toBottomOf="@id/sign_fg_btn" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_fg_btn"
             android:layout_width="358dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="42dp"
             android:background="@drawable/peach_radius8_btn"
-            android:text="Create account"
+            android:text="@{fragmentText.btnLabel}"
+            tools:text="Create account"
             android:textAllCaps="false"
             android:textAppearance="@style/Headline17.White"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,8 +130,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <data>
-
-    </data>
 </layout>

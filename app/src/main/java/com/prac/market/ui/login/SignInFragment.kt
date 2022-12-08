@@ -1,13 +1,17 @@
 package com.prac.market.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.prac.market.R
 import com.prac.market.databinding.FragmentSignInBinding
+import com.prac.market.ui.common.layoutBackground
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 class SignInFragment : Fragment() {
@@ -23,12 +27,14 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-    setNavigation()
+        layoutBackground(view,"https://user-images.githubusercontent.com/91457591/206108205-6fe39f5e-1674-4129-8b90-e1005a9870de.jpg")
+        setNavigation()
 
     }
-    private fun setNavigation(){
+    private fun setNavigation() {
         email_login_btn.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_loginFragment)
+           findNavController().navigate(R.id.action_signInFragment_to_loginFragment)
+
         }
     }
 }

@@ -12,12 +12,9 @@
         android:layout_height="match_parent">
 
         <ImageView
-            imageUrl="https://user-images.githubusercontent.com/91457591/206108205-6fe39f5e-1674-4129-8b90-e1005a9870de.jpg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/market_light_orange"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            android:background="@color/black_25" />
 
         <ImageView
             android:id="@+id/fg_login_logo"
@@ -102,14 +99,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.52"/>
+            app:layout_constraintGuide_percent="0.50"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2"/>
+            app:layout_constraintGuide_percent="0.20"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
