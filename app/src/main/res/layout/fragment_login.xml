@@ -15,7 +15,7 @@
             imageUrl="https://user-images.githubusercontent.com/91457591/206108205-6fe39f5e-1674-4129-8b90-e1005a9870de.jpg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:background="@color/market_light_orange"
+            android:background="@color/market_light_orange"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
@@ -74,6 +74,16 @@
             app:layout_constraintTop_toBottomOf="@id/google_login_btn"
             />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/background_white_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kakao_login_btn"
+            app:layout_constraintBottom_toTopOf="@id/email_login_btn"
+            />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/email_login_btn"
             android:layout_width="358dp"
@@ -93,14 +103,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.58"/>
+            app:layout_constraintGuide_percent="0.53"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.248"/>
+            app:layout_constraintGuide_percent="0.2"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
