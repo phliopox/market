@@ -8,7 +8,15 @@
         android:name="com.prac.market.ui.welcome.WelcomeFragment"
         android:label="WelcomeFragment" >
         <action
-            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            android:id="@+id/action_welcomeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.prac.market.ui.login.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment

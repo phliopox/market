@@ -45,4 +45,7 @@
     <style name="Title22.Bold"><item name="android:textStyle">bold</item> </style>
     <style name="Title22.Bold.White"><item name="android:textColor">@color/market_white</item></style>
     <style name="Title22.Bold.Teflon"><item name="android:textColor">@color/market_teflon</item></style>
+
+    <style name="Title28Bold" parent="TextAppearance.AppCompat.Title"><item name="android:textSize">28sp</item><item name="android:textStyle">bold</item></style>
+
 </resources>
