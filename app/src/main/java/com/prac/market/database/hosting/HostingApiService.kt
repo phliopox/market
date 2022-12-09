@@ -12,6 +12,6 @@ interface HostingApiService {
                               @Field("Password") password : String) : Result
 }
 data class Result(
-    val success : Boolean,
+    var success : Boolean,
     val error : String
 )

@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_login.*
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    //private lateinit var auth :FirebaseAuth
     private val viewModel : AccountViewModel by viewModels()
     private val createAccountLayout = FragmentText("Go with your flow", "Create account") // 계정 만들기
     private val loginLayout = FragmentText("Welcome back!", "Login") // 로그인하기
@@ -34,7 +33,6 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      //  auth= Firebase.auth
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         return binding.root
     }
@@ -53,9 +51,9 @@ class LoginFragment : Fragment() {
 
         }
     }
+
+
     private fun userInfoValidation(editTextEmail: String, editTextPassword: String) {
-
-
         if (editTextEmail.isEmpty() || editTextPassword.isEmpty()) {
             Toast.makeText(this.context, "email 과 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
         }else if(!Patterns.EMAIL_ADDRESS.matcher(editTextEmail).matches()){
@@ -67,33 +65,19 @@ class LoginFragment : Fragment() {
         }
     }
 
+
     private fun createAccount(validatedEmail: String, validatedPassword: String) {
 
-        Log.d("CreateAccount Method", "$validatedEmail $validatedPassword")
         viewModel.addNewAccount(validatedEmail,validatedPassword)
-
-
-
-
-       /* firebase authentication logic
-        auth.createUserWithEmailAndPassword(validatedEmail, validatedPassword).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                Log.d("LoginFragment", "createUserWithEmail:success")
-                val user = auth.currentUser
-
+        viewModel.addAccountResult.observe(viewLifecycleOwner){response->
+            if(response.success){
                 sign_fg_email.setText("")
                 sign_fg_password.setText("")
                 binding.fragmentText = loginLayout
-                //updateUI(user)
-
-            } else {
-                // If sign in fails, display a message to the user.
-                Log.w("LoginFragment", "createUserWithEmail:failure", task.exception)
-                Toast.makeText(this.context, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                //updateUI(null)
+            }else{
+                Toast.makeText(this.context, "죄송합니다 서비스를 개선중입니다.", Toast.LENGTH_SHORT).show()
 
             }
-        }*/
+        }
     }
 }
