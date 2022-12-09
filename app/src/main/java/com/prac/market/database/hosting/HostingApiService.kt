@@ -10,8 +10,11 @@ interface HostingApiService {
     @POST("market_signin.php")
     suspend fun addAccount(@Field("Email") email : String,
                               @Field("Password") password : String) : Result
+
+
 }
 data class Result(
-    var success : Boolean,
+    val success : Boolean,
+    val existAccount : Boolean,
     val error : String
 )

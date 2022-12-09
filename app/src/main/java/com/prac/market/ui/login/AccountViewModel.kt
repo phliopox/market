@@ -15,19 +15,20 @@ import javax.inject.Inject
 @HiltViewModel
 class AccountViewModel @Inject constructor(private val repository: AccountRepository) : ViewModel() {
 
-    private val _addAccountResult = MutableLiveData<retroResponse>()
-    val addAccountResult :LiveData<retroResponse> =  _addAccountResult
+    private val _addAccountResult = MutableLiveData<Result>()
+    val addAccountResult :LiveData<Result> =  _addAccountResult
 
     fun addNewAccount(email: String, password: String) {
         viewModelScope.launch {
             val result = repository.addNewAccount(email, password)
             Log.d("AccountViewModel : Api retroResponse result",result.toString())
-            if(result.success){
-                _addAccountResult.value = retroResponse(true)
-            }
+
+            _addAccountResult.value= result
         }
     }
 }
+/*
 data class retroResponse (
-    var success : Boolean
-        )
+    val success : Boolean,
+    val existAccount : Boolean
+        )*/

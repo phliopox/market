@@ -10,9 +10,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.prac.market.R
 import com.prac.market.databinding.FragmentLoginBinding
 import com.prac.market.model.FragmentText
@@ -32,7 +29,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         return binding.root
     }
@@ -69,15 +66,23 @@ class LoginFragment : Fragment() {
     private fun createAccount(validatedEmail: String, validatedPassword: String) {
 
         viewModel.addNewAccount(validatedEmail,validatedPassword)
-        viewModel.addAccountResult.observe(viewLifecycleOwner){response->
-            if(response.success){
+        viewModel.addAccountResult.observe(viewLifecycleOwner) { result ->
+            var text: String?
+            if (result.success && !result.existAccount) {
                 sign_fg_email.setText("")
                 sign_fg_password.setText("")
                 binding.fragmentText = loginLayout
-            }else{
-                Toast.makeText(this.context, "죄송합니다 서비스를 개선중입니다.", Toast.LENGTH_SHORT).show()
-
+                text="가입이 완료되었습니다."
+                sign_fg_btn.setOnClickListener {
+                    //ToDo select해서 해당 email.password 가 일치하는 회원이 있는지.
+                }
+            } else if (result.existAccount) {
+                Log.d("CreateAccount Method", result.existAccount.toString())
+                text="이미 가입된 이메일입니다."
+            } else {
+                text="죄송합니다 서비스를 개선중입니다."
             }
+            Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
         }
     }
 }
