@@ -9,17 +9,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.prac.market.R
 import com.prac.market.databinding.FragmentLoginBinding
 import com.prac.market.model.FragmentText
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_login.*
 
+
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var auth :FirebaseAuth
+    //private lateinit var auth :FirebaseAuth
+    private val viewModel : AccountViewModel by viewModels()
     private val createAccountLayout = FragmentText("Go with your flow", "Create account") // 계정 만들기
     private val loginLayout = FragmentText("Welcome back!", "Login") // 로그인하기
 
@@ -29,7 +34,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        auth= Firebase.auth
+      //  auth= Firebase.auth
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         return binding.root
     }
@@ -65,7 +70,12 @@ class LoginFragment : Fragment() {
     private fun createAccount(validatedEmail: String, validatedPassword: String) {
 
         Log.d("CreateAccount Method", "$validatedEmail $validatedPassword")
+        viewModel.addNewAccount(validatedEmail,validatedPassword)
 
+
+
+
+       /* firebase authentication logic
         auth.createUserWithEmailAndPassword(validatedEmail, validatedPassword).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
@@ -84,6 +94,6 @@ class LoginFragment : Fragment() {
                 //updateUI(null)
 
             }
-        }
+        }*/
     }
 }

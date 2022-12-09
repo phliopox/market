@@ -1,28 +1,25 @@
-package com.prac.market.database
+package com.prac.market.database.hosting
 
-import com.prac.market.core.API_BASE_URL
-import com.prac.market.BuildConfig
+import com.prac.market.core.HOSTING_WEB_URL
+import com.prac.market.database.AccountRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
-/**
- * DataBase,Dao,Repository -> Hilt
- */
+
 @Module
 @InstallIn(SingletonComponent::class)
-class DiModule {
-
+class HostingHiltModule {
     @Provides
-    fun provideBaseUrl() = API_BASE_URL
+    fun provideHostingWebUrl() = HOSTING_WEB_URL
 
-    @Singleton
+ /*   @Singleton
     @Provides
     fun provideOKHttpClient() = if (BuildConfig.DEBUG){
         val logger = HttpLoggingInterceptor().apply {
@@ -33,13 +30,14 @@ class DiModule {
             .build()
     }else{
         OkHttpClient.Builder().build()
-    }
+    }*/
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit{
+    @Named("provideHostingRetrofit")
+    fun provideHostingRetrofit(@Named("okhttp1") okHttpClient: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
-            .baseUrl(provideBaseUrl())
+            .baseUrl(provideHostingWebUrl())
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -47,17 +45,13 @@ class DiModule {
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit):ApiService{
-            return retrofit.create(ApiService::class.java)
+    fun provideWebApiService(@Named("provideHostingRetrofit") retrofit: Retrofit): HostingApiService {
+        return retrofit.create(HostingApiService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideHomeRepository(apiService: ApiService) = HomeRepository(apiService)
+    fun provideAccountRepository(hostingApiService: HostingApiService) = AccountRepository(hostingApiService)
 
-
-    @Singleton
-    @Provides
-    fun provideWelcomeRepository(apiService: ApiService) = WelcomeRepository(apiService)
 
 }
