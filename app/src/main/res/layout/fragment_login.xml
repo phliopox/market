@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="fragmentText"
-            type="com.prac.market.model.FragmentText" />
+            name="account"
+            type="com.prac.market.model.Account" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/sign_fg_email"
+            android:id="@+id/login_fg_email"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_margin="16dp"
@@ -25,13 +25,14 @@
             android:paddingEnd="52dp"
             android:paddingStart="20dp"
             android:textAllCaps="false"
+            android:text="@{account.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_fg_title"
+            app:layout_constraintTop_toBottomOf="@id/login_fg_title"
             tools:text="steve_Donuto@gmail.com" />
 
         <EditText
-            android:id="@+id/sign_fg_password"
+            android:id="@+id/login_fg_password"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_margin="16dp"
@@ -42,9 +43,10 @@
             android:paddingEnd="52dp"
             android:paddingStart="20dp"
             android:textAllCaps="false"
+            android:text="@{account.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_fg_email"
+            app:layout_constraintTop_toBottomOf="@id/login_fg_email"
             tools:text="steve_Donuto@gamil.com" />
 
         <ImageView
@@ -59,13 +61,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/background_karl_line"
-            app:layout_constraintBottom_toTopOf="@id/sign_fg_btn"
+            app:layout_constraintBottom_toTopOf="@id/login_fg_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_fg_password" />
+            app:layout_constraintTop_toBottomOf="@id/login_fg_password" />
 
         <TextView
-            android:id="@+id/sign_fg_title"
+            android:id="@+id/login_fg_title"
             style="@style/Title28Bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,10 +91,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/Title10"
-            app:layout_constraintTop_toBottomOf="@id/sign_fg_btn" />
+            app:layout_constraintTop_toBottomOf="@id/login_fg_btn" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/sign_fg_btn"
+            android:id="@+id/login_fg_btn"
             android:layout_width="358dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -105,7 +107,7 @@
             android:textAppearance="@style/Headline17.White"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_fg_password" />
+            app:layout_constraintTop_toBottomOf="@id/login_fg_password" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"

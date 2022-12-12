@@ -14,4 +14,10 @@ class AccountRepository @Inject constructor(private val hostingApiService : Host
             hostingApiService.addAccount(email,password)
         }
     }
+
+    suspend fun login(email: String, password: String): Result {
+        return withContext(Dispatchers.IO) {
+            hostingApiService.login(email, password)
+        }
+    }
 }

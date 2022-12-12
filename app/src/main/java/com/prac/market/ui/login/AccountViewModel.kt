@@ -1,7 +1,6 @@
 package com.prac.market.ui.login
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,12 +15,13 @@ import javax.inject.Inject
 const val SIGN_IN_SUCCESS = "가입이 완료되었습니다."
 const val EXIST_ID = "이미 가입된 이메일입니다."
 const val UNKNOWN_ERROR="죄송합니다. 서비스를 개선중입니다."
+const val NOT_EXIST_ID ="존재하지않는 아이디입니다."
 
 @HiltViewModel
 class AccountViewModel @Inject constructor(private val repository: AccountRepository) : ViewModel() {
 
-    private val _addAccountResult = MutableLiveData<Result>()
-    val addAccountResult :LiveData<Result> =  _addAccountResult
+    private val _accountResult = MutableLiveData<Result>()
+    val accountResult :LiveData<Result> =  _accountResult
 
     private val _message = MutableLiveData<Event<String>>()
     val message: LiveData<Event<String>> = _message
@@ -30,7 +30,7 @@ class AccountViewModel @Inject constructor(private val repository: AccountReposi
     fun addNewAccount(email: String, password: String) {
         viewModelScope.launch {
             val result = repository.addNewAccount(email, password)
-            _addAccountResult.value= result
+            _accountResult.value= result
 
             if (result.success && !result.existAccount) {
                 _message.value = Event(SIGN_IN_SUCCESS)
@@ -42,4 +42,18 @@ class AccountViewModel @Inject constructor(private val repository: AccountReposi
             }
         }
     }
+
+    fun loginCheck(email:String, password:String){
+        viewModelScope.launch {
+            val result = repository.login(email, password)
+            _accountResult.value= result
+
+            if(result.success){
+                //TODO 세션
+            }else if(!result.existAccount){
+                _message.value = Event(NOT_EXIST_ID)
+            }
+        }
+    }
+
 }

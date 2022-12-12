@@ -48,15 +48,18 @@ class SignInFragment : Fragment() {
 
 
     private fun userInfoValidation(editTextEmail: String, editTextPassword: String) {
+        var message : String? = null
+
         if (editTextEmail.isEmpty() || editTextPassword.isEmpty()) {
-            Toast.makeText(this.context, "email 과 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+            message = "email 과 비밀번호를 모두 입력해주세요."
         }else if(!Patterns.EMAIL_ADDRESS.matcher(editTextEmail).matches()){
-            Toast.makeText(this.context, "올바른 email 형식을 사용해주세요.", Toast.LENGTH_SHORT).show()
+            message = "올바른 email 형식을 사용해주세요."
         }else if(editTextPassword.length<6){
-            Toast.makeText(this.context, "비밀번호는 6자리 이상이어야합니다.", Toast.LENGTH_SHORT).show()
+            message = "비밀번호는 6자리 이상이어야합니다."
         } else {
             createAccount(editTextEmail, editTextPassword)
         }
+        message?.let{Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()}
     }
 
 
