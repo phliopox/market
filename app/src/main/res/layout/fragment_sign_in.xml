@@ -5,108 +5,132 @@
 
     <data>
 
+        <variable
+            name="newAccount"
+            type="com.prac.market.model.Account" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/black_25" />
+        <EditText
+            android:id="@+id/sign_fg_email"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/selector_edit_text"
+            android:drawablePadding="13dp"
+            android:drawableStart="@drawable/ic_email"
+            android:inputType="textEmailAddress"
+            android:paddingEnd="52dp"
+            android:paddingStart="20dp"
+            android:textAllCaps="false"
+            android:text="@{newAccount.email}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_fg_title"
+            tools:text="steve_Donuto@gmail.com" />
+
+        <EditText
+            android:id="@+id/sign_fg_password"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/selector_edit_text"
+            android:drawablePadding="13dp"
+            android:drawableStart="@drawable/ic_password"
+            android:inputType="textPassword"
+            android:paddingEnd="52dp"
+            android:paddingStart="20dp"
+            android:textAllCaps="false"
+            android:text="@{newAccount.password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_fg_email"
+            tools:text="steve_Donuto@gamil.com" />
 
         <ImageView
-            android:id="@+id/fg_login_logo"
+            android:id="@+id/sign_fg_logo"
             android:layout_width="144dp"
             android:layout_height="125dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline1"
-            android:background="@drawable/logo"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/face_book_login_btn"
-            android:layout_width="358dp"
-            android:layout_height="54dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline2"
-            android:text="@string/sign_in_with_facebook"
-            android:gravity="start|center"
-            android:textAppearance="@style/Title20.White"
-            android:drawableStart="@drawable/ic_facebook_logo"
-            android:paddingStart="15.5dp"
-            android:drawablePadding="65dp"
-            android:textAllCaps="false"
-            android:background="@drawable/facebook_btn"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/google_login_btn"
-            android:layout_width="358dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/white_radius8"
-            android:text="@string/sign_in_with_google"
-            android:textAllCaps="false"
-            android:textAppearance="@style/Title20.Black54"
-            android:drawableStart="@drawable/ic_google_logo"
-            android:paddingStart="15.5dp"
-            android:drawablePadding="75dp"
-            android:gravity="start|center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/face_book_login_btn"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/kakao_login_btn"
-            android:layout_width="358dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/kakao_login_large_wide"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/google_login_btn"
-            />
+            android:background="@drawable/ic_sign_vp_logo"
+            app:layout_constraintStart_toStartOf="@id/guideline3"
+            app:layout_constraintTop_toTopOf="@id/guideline1" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/background_white_line"
-            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/background_karl_line"
+            app:layout_constraintBottom_toTopOf="@id/sign_fg_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/kakao_login_btn"
-            app:layout_constraintBottom_toTopOf="@id/email_login_btn"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/email_login_btn"
-            android:layout_width="358dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/white_radius8"
-            android:text="Sign In with Email"
-            android:textAllCaps="false"
-            android:textAppearance="@style/Title20.Peach"
-            />
+            app:layout_constraintTop_toBottomOf="@id/sign_fg_password" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+        <TextView
+            android:id="@+id/sign_fg_title"
+            style="@style/Title28Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="24dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="24dp"
+            android:text="@string/signin_title"
+            tools:text="Go with your flow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.50"/>
+            android:layout_marginTop="1dp"
+            android:padding="16dp"
+            android:text="@string/privacy_poilcy_and_tos_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Title10"
+            app:layout_constraintTop_toBottomOf="@id/sign_fg_btn" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_fg_btn"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="42dp"
+            android:background="@drawable/peach_radius8_btn"
+            android:text="@string/create_account"
+            tools:text="Create account"
+            android:textAllCaps="false"
+            android:textAppearance="@style/Headline17.White"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_fg_password" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.20"/>
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.32" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
