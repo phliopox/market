@@ -11,6 +11,6 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-       supportFragmentManager.findFragmentById(R.id.container_welcome)?.findNavController()
+        supportFragmentManager.findFragmentById(R.id.container_welcome)?.findNavController()
     }
 }

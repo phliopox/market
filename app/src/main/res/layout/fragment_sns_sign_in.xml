@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/white_radius8"
-            android:text="Sign In with Email"
+            android:text="Login In with Email"
             android:textAllCaps="false"
             android:textAppearance="@style/Title20.Peach"
             />

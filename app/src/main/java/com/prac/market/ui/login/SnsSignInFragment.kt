@@ -1,11 +1,9 @@
 package com.prac.market.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.prac.market.R
@@ -18,7 +16,7 @@ class SnsSignInFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentSnsSignInBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -32,7 +30,7 @@ class SnsSignInFragment : Fragment() {
     }
     private fun setNavigation() {
         email_login_btn.setOnClickListener {
-           findNavController().navigate(R.id.action_snsSignInFragment_to_signInFragment)
+           findNavController().navigate(R.id.action_snsSignInFragment_to_loginFragment)
 
         }
     }

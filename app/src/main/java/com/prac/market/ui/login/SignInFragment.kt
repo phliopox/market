@@ -67,7 +67,7 @@ class SignInFragment : Fragment() {
         viewModel.addNewAccount(validatedEmail,validatedPassword)
         viewModel.message.observe(viewLifecycleOwner,EventObserver{ message ->
             Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
-            if(message == "가입이 완료되었습니다."){loginNavigation()}
+            if(message == SIGN_IN_SUCCESS){loginNavigation()}
         })
     }
 

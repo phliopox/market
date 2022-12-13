@@ -12,6 +12,7 @@ interface HostingApiService {
     suspend fun addAccount(@Field("Email") email : String,
                               @Field("Password") password : String) : Result
 
+    @FormUrlEncoded
     @POST("market_login.php")
     suspend fun login(@Field("Email") email : String,
                         @Field("Password")password: String):Result
@@ -19,5 +20,6 @@ interface HostingApiService {
 data class Result(
     val success : Boolean,
     val existAccount : Boolean,
-    val error : String
+    val error : String,
+    val login_token:String?
 )

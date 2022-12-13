@@ -29,6 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_fg_title"
+            android:autofillHints="emailAddress"
             tools:text="steve_Donuto@gmail.com" />
 
         <EditText
@@ -47,6 +48,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_fg_email"
+            android:autofillHints="password"
             tools:text="steve_Donuto@gamil.com" />
 
         <ImageView
@@ -55,7 +57,8 @@
             android:layout_height="125dp"
             android:background="@drawable/ic_sign_vp_logo"
             app:layout_constraintStart_toStartOf="@id/guideline3"
-            app:layout_constraintTop_toTopOf="@id/guideline1" />
+            app:layout_constraintTop_toTopOf="@id/guideline1"
+            android:contentDescription="@string/logo"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -83,6 +86,7 @@
             app:layout_constraintTop_toTopOf="@id/guideline2" />
 
         <TextView
+            android:id="@+id/policy_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
@@ -93,6 +97,17 @@
             style="@style/Title10"
             app:layout_constraintTop_toBottomOf="@id/login_fg_btn" />
 
+        <Button
+            android:id="@+id/move_sign_in_fg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JoIn Us With Email !"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/policy_text"
+            app:layout_constraintStart_toStartOf="@+id/login_fg_btn"
+            android:padding="15dp"
+            />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_fg_btn"
             android:layout_width="358dp"
@@ -102,7 +117,7 @@
             android:layout_marginTop="42dp"
             android:background="@drawable/peach_radius8_btn"
             android:text="@string/login"
-            tools:text="Create account"
+            tools:text="Login"
             android:textAllCaps="false"
             android:textAppearance="@style/Headline17.White"
             app:layout_constraintEnd_toEndOf="parent"

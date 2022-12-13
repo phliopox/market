@@ -19,19 +19,6 @@ class HostingHiltModule {
     @Provides
     fun provideHostingWebUrl() = HOSTING_WEB_URL
 
- /*   @Singleton
-    @Provides
-    fun provideOKHttpClient() = if (BuildConfig.DEBUG){
-        val logger = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC }
-
-        OkHttpClient.Builder()
-            .addInterceptor(logger)
-            .build()
-    }else{
-        OkHttpClient.Builder().build()
-    }*/
-
     @Singleton
     @Provides
     @Named("provideHostingRetrofit")
