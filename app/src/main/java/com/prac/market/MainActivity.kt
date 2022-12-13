@@ -9,6 +9,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.prac.market.core.DEFAULT_STRING
+import com.prac.market.core.KEY_USER_ID
 import com.prac.market.ui.welcome.WelcomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,10 +22,15 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        //getSharedPreferences("isFirst", Activity.MODE_PRIVATE)
+        val firstRunPref = this.getSharedPreferences("isFirst", Activity.MODE_PRIVATE)
+        val firstRun = firstRunPref.getBoolean("isFirst", true)
 
-        val pref = getSharedPreferences("isFirst", Activity.MODE_PRIVATE)
-        val firstRun = pref.getBoolean("isFirst", true)
-        if (firstRun) {
+        val autologinPref= getSharedPreferences("LoginFragment",Activity.MODE_PRIVATE)
+        val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)
+        Log.d("MainActivity 1-1", string.toString())
+
+        if (firstRun&&string.isNullOrEmpty()) {
 
             Log.d("if true", "앱 최초실행 true")
             // 앱 최초 실행시 하고 싶은 작업 welcome viewpage 노출
