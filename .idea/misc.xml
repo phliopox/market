@@ -38,11 +38,13 @@
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_home.xml" value="0.3425" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_market.xml" value="0.334" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/selector_wish.xml" value="0.334" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/white_radius8.xml" value="0.257" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/drawable/whitey_radius8.xml" value="0.257" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/account_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/eee.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_account.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_account.xml" value="0.33" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/Jeong/AndroidStudioProjects/market/app/src/main/res/layout/fragment_market.xml" value="0.36614583333333334" />

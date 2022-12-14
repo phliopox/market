@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="radius5"><item name="cornerSize">12dp</item></style>
-
+    <style name="Circle"><item name="cornerSize">50%</item></style>
 
     <style name="SubTitle15" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">15sp</item>

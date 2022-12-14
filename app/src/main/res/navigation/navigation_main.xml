@@ -20,4 +20,8 @@
         android:id="@+id/navigation_wish"
         android:name="com.prac.market.ui.wish.WishFragment"
         android:label="WishFragment" />
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.prac.market.ui.login.LoginFragment"
+        android:label="LoginFragment" />
 </navigation>

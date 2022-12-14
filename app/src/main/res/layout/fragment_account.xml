@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="account"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="account"
+            type="com.prac.market.model.Account" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/account_title"
+            style="@style/Title28Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/my_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/user_id"
+            style="@style/Headline17.teflon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:text="@{account.email}"
+            app:layout_constraintStart_toEndOf="@id/user_profile_image"
+            app:layout_constraintTop_toTopOf="@id/guideline1"
+            tools:text="Steve Donuto" />
+
+        <TextView
+            android:id="@+id/user_text1"
+            style="@style/SubTitle15.Gandalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="5'4'' 128 Ibs"
+            app:layout_constraintStart_toStartOf="@id/user_id"
+            app:layout_constraintTop_toBottomOf="@id/user_id" />
+
+        <TextView
+            android:id="@id/user_text2"
+            style="@style/SubTitle15.Gandalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="San Francisco,CA"
+            app:layout_constraintStart_toStartOf="@id/user_text1"
+            app:layout_constraintTop_toBottomOf="@id/user_text1" />
+
+        <!--<TextView
+            style="@style/SubTitle15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto Login"
+            app:layout_constraintBottom_toBottomOf="@id/switch_auto_login"
+            app:layout_constraintStart_toStartOf="@id/user_profile_image"
+            app:layout_constraintTop_toTopOf="@+id/switch_auto_login" />
+-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logout_btn"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/whitey_radius8"
+            android:text="Logout"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/user_text2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/user_id" />
+
+   <!--     <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:checked="true"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/logout_btn"
+
+            />-->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.14" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_profile_image"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="@id/account_title"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1"
+            app:shapeAppearanceOverlay="@style/Circle"
+            android:src="@color/market_peach" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
