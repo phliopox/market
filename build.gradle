@@ -4,6 +4,8 @@ buildscript {
         google()  // Google's Maven repository
         mavenCentral()  // Maven Central repository
 
+        //kakao sdk repository setting
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.13'
@@ -16,7 +18,6 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
     id("com.google.dagger.hilt.android") version "2.44" apply false
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

@@ -15,7 +15,6 @@ import com.prac.market.EventObserver
 import com.prac.market.R
 import com.prac.market.databinding.FragmentSignInBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 
 @AndroidEntryPoint
@@ -35,11 +34,10 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sign_fg_btn.setOnClickListener {
+        binding.signFgBtn.setOnClickListener {
 
-            val editTextEmail = sign_fg_email.text.toString()
-            val editTextPassword = sign_fg_password.text.toString()
-            Log.d("clicked ID",editTextEmail)
+            val editTextEmail = binding.signFgEmail.text.toString()
+            val editTextPassword = binding.signFgPassword.text.toString()
             userInfoValidation(editTextEmail,editTextPassword)
 
 

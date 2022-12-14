@@ -58,12 +58,12 @@ class LoginFragment : Fragment() {
             })
         }
 
-            //sharedPreferences check Log
+            /*//sharedPreferences check Log
             val string = requireActivity().getSharedPreferences("LoginFragment",0).getString(KEY_USER_ID, DEFAULT_STRING)
 
             Log.d("LoginFragment 1-1", requireActivity()::class.java.toString())
             Log.d("LoginFragment 1-2", string.toString())
-            Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())
+            Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
 
         binding.moveSignInFg.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signInFragment)

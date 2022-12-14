@@ -56,7 +56,6 @@ class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.Hom
         fun bind(banner: Banners) {
             binding.banners = banner
             binding.executePendingBindings()
-            Log.d("HomeBanner Response : ",binding.banners.toString() )
             when (banner.title) {
                 "quest" ->
                     nestedQuestAdapter.submitList(banner.banners)
