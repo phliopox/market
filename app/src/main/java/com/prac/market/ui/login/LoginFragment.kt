@@ -1,6 +1,5 @@
 package com.prac.market.ui.login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -17,9 +16,7 @@ import com.prac.market.R
 import com.prac.market.core.DEFAULT_STRING
 import com.prac.market.core.KEY_USER_ID
 import com.prac.market.databinding.FragmentLoginBinding
-import com.prac.market.ui.welcome.WelcomeActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_login.*
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -40,9 +37,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        login_fg_btn.setOnClickListener {
-            val loginEmail = login_fg_email.text.toString()
-            val loginPassword = login_fg_password.text.toString()
+            binding.loginFgBtn.setOnClickListener {
+            val loginEmail = binding.loginFgEmail.text.toString()
+            val loginPassword = binding.loginFgPassword.text.toString()
 
             viewModel.loginCheck(loginEmail,loginPassword)
             viewModel.message.observe(viewLifecycleOwner,EventObserver{message->
@@ -68,7 +65,7 @@ class LoginFragment : Fragment() {
             Log.d("LoginFragment 1-2", string.toString())
             Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())
 
-        move_sign_in_fg.setOnClickListener {
+        binding.moveSignInFg.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signInFragment)
         }
     }

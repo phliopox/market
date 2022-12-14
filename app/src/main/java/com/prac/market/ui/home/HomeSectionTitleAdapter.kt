@@ -13,6 +13,7 @@ import com.prac.market.model.Banners
 import com.prac.market.ui.home.itemadapter.PopularProductAdapter
 import com.prac.market.ui.home.itemadapter.QuestBannerAdapter
 import com.prac.market.ui.home.itemadapter.SeasonalProductAdapter
+import kotlin.math.ceil
 
 class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.HomeSectionTitleViewHolder>(
     HomeDiffUtil()
@@ -35,7 +36,6 @@ class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.Hom
         private val nestedQuestAdapter = QuestBannerAdapter()
         private val nestedPopularAdapter = PopularProductAdapter()
         private val nestedSeasonalProductAdapter = SeasonalProductAdapter()
-
         init{
             binding.homeBannerView.adapter = ConcatAdapter(nestedQuestAdapter,nestedPopularAdapter,nestedSeasonalProductAdapter)
 
@@ -48,6 +48,7 @@ class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.Hom
                 setPageTransformer{page,position ->
                     page.translationX = position*-offset
                 }
+
                 offscreenPageLimit = 3
             }
         }

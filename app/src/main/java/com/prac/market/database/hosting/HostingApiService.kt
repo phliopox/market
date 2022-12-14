@@ -17,7 +17,8 @@ interface HostingApiService {
     suspend fun login(@Field("Email") email : String,
                         @Field("Password")password: String):Result
 }
-data class Result(
+data
+class Result(
     val success : Boolean,
     val existAccount : Boolean,
     val error : String,
