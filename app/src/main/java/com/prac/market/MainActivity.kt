@@ -2,8 +2,8 @@ package com.prac.market
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val autologinPref= getSharedPreferences(LOGIN,Activity.MODE_PRIVATE)
         val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)
 
+
         //val keyHash = Utility
         if (firstRun&&string.isNullOrEmpty()) {
             // 앱 최초 실행시 welcome viewpage 노출
@@ -47,6 +48,9 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigationView.setupWithNavController(it)
             }
         }
+        // SDK 초기화
+        // SDK 초기화
+
     }
 
 }
