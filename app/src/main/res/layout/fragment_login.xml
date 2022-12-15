@@ -97,15 +97,16 @@
             style="@style/Title10"
             app:layout_constraintTop_toBottomOf="@id/login_fg_btn" />
 
-        <Button
+        <TextView
             android:id="@+id/move_sign_in_fg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="JoIn Us With Email !"
+            android:text="Click here to join us with email !"
             android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@id/policy_text"
             app:layout_constraintStart_toStartOf="@+id/login_fg_btn"
-            android:padding="15dp"
+            android:textColor="@color/market_orange"
+
             />
 
         <androidx.appcompat.widget.AppCompatButton

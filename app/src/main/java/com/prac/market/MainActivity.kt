@@ -8,6 +8,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kakao.sdk.common.KakaoSdk
 import com.prac.market.core.DEFAULT_STRING
 import com.prac.market.core.IS_FIRST_RUN
 import com.prac.market.core.KEY_USER_ID
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val autologinPref= getSharedPreferences(LOGIN,Activity.MODE_PRIVATE)
         val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)
 
+        KakaoSdk.init(this, "{NATIVE_APP_KEY}")
 
         //val keyHash = Utility
         if (firstRun&&string.isNullOrEmpty()) {
@@ -48,9 +50,6 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigationView.setupWithNavController(it)
             }
         }
-        // SDK 초기화
-        // SDK 초기화
-
     }
 
 }

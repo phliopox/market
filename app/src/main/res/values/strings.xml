@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">market</string>
     <string name="get_started">Get started</string>
-    <string name="sign_in_with_facebook">Sign In with Facebook</string>
-    <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="sign_in_with_facebook">Login In with Facebook</string>
+    <string name="sign_in_with_google">Login In with Google</string>
     <string name="privacy_poilcy_and_tos_info">By clicking \"Create account\",I agree to SnackOverflow\'s TOS and Privacy Policy.</string>
     <string name="signin_title">Go with your flow</string>
     <string name="create_account">Create_account</string>

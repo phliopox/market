@@ -64,6 +64,7 @@ class LoginFragment : Fragment() {
             Log.d("LoginFragment 1-1", requireActivity()::class.java.toString())
             Log.d("LoginFragment 1-2", string.toString())
             Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
+        //ToDo Viemodel 객체 accountResult observe 해서 값이 다른 fragment에서도 꺼내지는지 check -> mypage에서 관찰해서 null일시 sns signin page로
 
         binding.moveSignInFg.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signInFragment)

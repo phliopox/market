@@ -25,12 +25,9 @@ class WelcomeActivity : AppCompatActivity() {
         val firstRunPref = this.getSharedPreferences(IS_FIRST_RUN, Activity.MODE_PRIVATE)
         val firstRun = firstRunPref.getBoolean(IS_FIRST_RUN, true)
 
-        /*val autologinPref= getSharedPreferences(LOGIN, Activity.MODE_PRIVATE)
-        val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)*/
-
         if(!firstRun){
             findNavController?.navigateUp()
-            findNavController?.navigate(R.id.loginFragment)
+            findNavController?.navigate(R.id.snsSignInFragment)
         }
     }
 }
