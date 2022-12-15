@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "770752701533",
+    "project_id": "market-d5fb9",
+    "storage_bucket": "market-d5fb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770752701533:android:e6e476af0389e66bf019b4",
+        "android_client_info": {
+          "package_name": "com.prac.market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770752701533-e3hmbiv9dg384jpd0b9joebssi8hkisu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA32p_t7NJ2sWvwNauKZTD6J45y4OdYItw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770752701533-e3hmbiv9dg384jpd0b9joebssi8hkisu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
