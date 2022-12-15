@@ -3,16 +3,15 @@ package com.prac.market
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kakao.sdk.common.KakaoSdk
-import com.prac.market.core.DEFAULT_STRING
-import com.prac.market.core.IS_FIRST_RUN
-import com.prac.market.core.KEY_USER_ID
-import com.prac.market.core.LOGIN
+import com.kakao.sdk.common.util.Utility
+import com.prac.market.core.*
 import com.prac.market.ui.welcome.WelcomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         val autologinPref= getSharedPreferences(LOGIN,Activity.MODE_PRIVATE)
         val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)
 
-        KakaoSdk.init(this, "{NATIVE_APP_KEY}")
+        KakaoSdk.init(this, KAKAO_NATIVE_APP_KEY)
+        var keyHash = Utility.getKeyHash(this)
+        Log.d("KeyHash" ,keyHash)
 
         //val keyHash = Utility
         if (firstRun&&string.isNullOrEmpty()) {
