@@ -30,10 +30,7 @@ class MainActivity : AppCompatActivity() {
         val string = autologinPref.getString(KEY_USER_ID, DEFAULT_STRING)
 
         KakaoSdk.init(this, KAKAO_NATIVE_APP_KEY)
-        var keyHash = Utility.getKeyHash(this)
-        Log.d("KeyHash" ,keyHash)
 
-        //val keyHash = Utility
         if (firstRun&&string.isNullOrEmpty()) {
             // 앱 최초 실행시 welcome viewpage 노출
             val intent = Intent(this, WelcomeActivity::class.java)

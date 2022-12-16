@@ -64,6 +64,7 @@ class LoginFragment : Fragment() {
             viewModel.message.observe(viewLifecycleOwner, EventObserver { message ->
                 Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
                 if (message == LOGIN_SUCCESS) {
+                    //email(ID) 정보를 pref 에 보관
                     viewModel.accountResult.value?.login_token?.let {
                         val pref = requireActivity().getSharedPreferences("LoginFragment", 0)
                         val edit = pref.edit()
