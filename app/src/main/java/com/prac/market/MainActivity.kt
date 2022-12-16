@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
             // 앱 최초 실행시 welcome viewpage 노출
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
-
-            firstRunPref.edit().putBoolean("isFirst", false).apply()
         } else {
             setContentView(R.layout.activity_main)
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_main)
@@ -48,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 bottomNavigationView.setupWithNavController(it)
             }
         }
+
     }
 
 }

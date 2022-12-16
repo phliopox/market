@@ -1,5 +1,6 @@
 package com.prac.market.ui.welcome
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.prac.market.R
+import com.prac.market.core.IS_FIRST_RUN
 import com.prac.market.databinding.FragmentWelcomeBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_welcome.*
 
 @AndroidEntryPoint
 class WelcomeFragment : Fragment() {
@@ -49,7 +50,11 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun clickStartBtn() {
-        welcome_start_btn.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_signInFragment) }
+        binding.welcomeStartBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_signInFragment)
+            val firstRunPref = requireActivity().getSharedPreferences(IS_FIRST_RUN, Activity.MODE_PRIVATE)
+            firstRunPref.edit().putBoolean("isFirst", false).apply()
+
+        }
     }
 }
