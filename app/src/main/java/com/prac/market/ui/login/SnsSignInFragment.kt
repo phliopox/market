@@ -49,15 +49,19 @@ class SnsSignInFragment : Fragment() {
             view,
             "https://user-images.githubusercontent.com/91457591/206108205-6fe39f5e-1674-4129-8b90-e1005a9870de.jpg"
         )
-
+        googleBtnCustom()
         kakaoLogin()
         googleLogin()
         moveToEmailLogin()
 
     }
 
+    private fun googleBtnCustom() {
+    binding.googleLoginBtn.setSize(1)
+    }
+
     private fun googleLogin() {
-        val TAG ="googleLogin()"
+        val TAG = "googleLogin()"
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -71,31 +75,34 @@ class SnsSignInFragment : Fragment() {
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         Log.d(TAG, account.toString())
 
-        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
-            Log.d(TAG,result.toString())
-            if(result.resultCode ==RESULT_OK){
-                val data:Intent?=result.data
-                val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-                handleSignInResults(task)
+        var resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                Log.d(TAG, result.toString())
+                if (result.resultCode == RESULT_OK) {
+                    val data: Intent? = result.data
+                    val task: Task<GoogleSignInAccount> =
+                        GoogleSignIn.getSignedInAccountFromIntent(data)
+                    handleSignInResults(task)
+                }
             }
-        }
 
         binding.googleLoginBtn.setOnClickListener {
             val signInIntent = mGoogleSignInClient.signInIntent
-          //  startActivityForResult(signInIntent, RC_SIGN_IN)
+            //  startActivityForResult(signInIntent, RC_SIGN_IN)
             resultLauncher.launch(signInIntent)
         }
 
 
     }
-    private fun handleSignInResults(completedTask : Task<GoogleSignInAccount>){
-        try{
+
+    private fun handleSignInResults(completedTask: Task<GoogleSignInAccount>) {
+        try {
             val snsName = "google"
             val account = completedTask.getResult(ApiException::class.java)
             val email = account?.email.toString()
-            saveEmailInfo(email,snsName)
-        }catch (e:ApiException){
-            Log.w("failed","signInResult:failed code"+e.statusCode)
+            saveEmailInfo(email, snsName)
+        } catch (e: ApiException) {
+            Log.w("failed", "signInResult:failed code" + e.statusCode)
         }
     }
 
@@ -144,9 +151,9 @@ class SnsSignInFragment : Fragment() {
             } else if (user != null) {
 
                 //이미 동의한 적이 있는 회원
-                if(user.kakaoAccount?.email!=null){
+                if (user.kakaoAccount?.email != null) {
                     val email = user.kakaoAccount?.email.toString()
-                    saveEmailInfo(email,snsName)
+                    saveEmailInfo(email, snsName)
                 }
 
                 var scopes = mutableListOf<String>()
@@ -171,7 +178,7 @@ class SnsSignInFragment : Fragment() {
                                     val email = user.kakaoAccount?.email.toString()
 
 
-                                    saveEmailInfo(email,snsName)
+                                    saveEmailInfo(email, snsName)
                                 }
                             }
                         }
@@ -181,7 +188,7 @@ class SnsSignInFragment : Fragment() {
         }
     }
 
-    private fun saveEmailInfo(email: String,snsName : String) {
+    private fun saveEmailInfo(email: String, snsName: String) {
         //email pref에 보관 후 intent
         Log.d("KAKAO user", email)
 
@@ -191,12 +198,12 @@ class SnsSignInFragment : Fragment() {
 
         /*val snsLoginPref = requireActivity().getSharedPreferences(IS_SNS_LOGIN,0)
         val snsEdit = snsLoginPref.edit()*/
-        edit.putString(IS_SNS_LOGIN,snsName)
+        edit.putString(IS_SNS_LOGIN, snsName)
         edit.commit()
 
         Toast.makeText(this.context, LOGIN_SUCCESS, Toast.LENGTH_SHORT).show()
         val intent = Intent(requireContext(), MainActivity::class.java)
-                                    startActivity(intent)
+        startActivity(intent)
     }
 
     private fun moveToEmailLogin() {
