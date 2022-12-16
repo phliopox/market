@@ -20,9 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
-    private lateinit var binding : FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     private val viewModel: AccountViewModel by viewModels()
-
 
 
     override fun onCreateView(
@@ -30,44 +29,52 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       binding = FragmentLoginBinding.inflate(inflater,container,false)
-       return binding.root
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-            binding.loginFgBtn.setOnClickListener {
+        emailLogin()
+        moveToEmailSignInFragment()
+
+
+
+        /*//sharedPreferences check Log
+        val string = requireActivity().getSharedPreferences("LoginFragment",0).getString(KEY_USER_ID, DEFAULT_STRING)
+
+        Log.d("LoginFragment 1-1", requireActivity()::class.java.toString())
+        Log.d("LoginFragment 1-2", string.toString())
+        Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
+    }
+
+    private fun moveToEmailSignInFragment() {
+        binding.moveSignInFg.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signInFragment)
+        }
+    }
+
+    private fun emailLogin() {
+        binding.loginFgBtn.setOnClickListener {
             val loginEmail = binding.loginFgEmail.text.toString()
             val loginPassword = binding.loginFgPassword.text.toString()
 
-            viewModel.loginCheck(loginEmail,loginPassword)
-            viewModel.message.observe(viewLifecycleOwner,EventObserver{message->
-                Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
-                if(message== LOGIN_SUCCESS){
-                   viewModel.accountResult.value?.login_token?.let{
-                    val pref = requireActivity().getSharedPreferences("LoginFragment",0)
-                       val edit = pref.edit()
-                       edit.putString(KEY_USER_ID,it)
-                       edit.commit()
+            viewModel.loginCheck(loginEmail, loginPassword)
+            viewModel.message.observe(viewLifecycleOwner, EventObserver { message ->
+                Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+                if (message == LOGIN_SUCCESS) {
+                    viewModel.accountResult.value?.login_token?.let {
+                        val pref = requireActivity().getSharedPreferences("LoginFragment", 0)
+                        val edit = pref.edit()
+                        edit.putString(KEY_USER_ID, it)
+                        edit.commit()
 
-                       val intent = Intent(requireContext(), MainActivity::class.java)
-                       startActivity(intent)
-                   }
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
             })
-        }
-
-            /*//sharedPreferences check Log
-            val string = requireActivity().getSharedPreferences("LoginFragment",0).getString(KEY_USER_ID, DEFAULT_STRING)
-
-            Log.d("LoginFragment 1-1", requireActivity()::class.java.toString())
-            Log.d("LoginFragment 1-2", string.toString())
-            Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
-        //ToDo Viemodel 객체 accountResult observe 해서 값이 다른 fragment에서도 꺼내지는지 check -> mypage에서 관찰해서 null일시 sns signin page로
-
-        binding.moveSignInFg.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signInFragment)
         }
     }
 }

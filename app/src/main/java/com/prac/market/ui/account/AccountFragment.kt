@@ -1,8 +1,8 @@
 package com.prac.market.ui.account
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,25 +33,28 @@ class AccountFragment : Fragment() {
 
         val loginPref = requireActivity().getSharedPreferences(LOGIN, 0)
         val savedId = loginPref.getString(KEY_USER_ID,DEFAULT_STRING)
-        callNavigation(savedId)
+        moveToLoginFragment(savedId)
 
         binding.account = Account(savedId.toString(),"")
 
-        //로그아웃
+        logout(loginPref)
+
+
+    }
+
+    private fun logout(loginPref: SharedPreferences) {
         binding.logoutBtn.setOnClickListener {
             //savedId 정보 삭제
             val editor = loginPref.edit()
             editor.clear()
             editor.commit()
-            callNavigation(null)
+            moveToLoginFragment(null)
         }
-
-
     }
 
-    private fun callNavigation(savedId:String?) {
+    private fun moveToLoginFragment(savedId:String?) {
         if (savedId.isNullOrEmpty()) {
-            // 저장된 id 없을시 로그인 fragment로 이동해야하기 때문에 welcome activity로 intent
+            // 저장된 id 없을시 로그인페이지로 이동
             val intent = Intent(requireContext(), WelcomeActivity::class.java)
             startActivity(intent)
         }
