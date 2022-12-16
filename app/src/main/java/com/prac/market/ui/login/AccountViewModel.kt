@@ -5,18 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prac.market.Event
+import com.prac.market.core.*
 import com.prac.market.database.AccountRepository
 import com.prac.market.database.hosting.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-const val SIGN_IN_SUCCESS = "가입이 완료되었습니다."
-const val EXIST_ID = "이미 가입된 이메일입니다."
-const val UNKNOWN_ERROR="죄송합니다. 서비스를 개선중입니다."
-const val NOT_EXIST_ID ="존재하지않는 아이디입니다."
-const val PASSWORD_ERROR="패스워드가 일치하지 않습니다."
-const val LOGIN_SUCCESS ="로그인 되었습니다."
 
 @HiltViewModel
 class AccountViewModel @Inject constructor(private val repository: AccountRepository) : ViewModel() {

@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.prac.market.EventObserver
 import com.prac.market.R
+import com.prac.market.core.SIGN_IN_SUCCESS
 import com.prac.market.databinding.FragmentSignInBinding
 import dagger.hilt.android.AndroidEntryPoint
 

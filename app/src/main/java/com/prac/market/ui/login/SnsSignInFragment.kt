@@ -1,5 +1,6 @@
 package com.prac.market.ui.login
 
+import android.app.Activity.RESULT_OK
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
@@ -8,17 +9,25 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.prac.market.MainActivity
 import com.prac.market.R
-import com.prac.market.core.KEY_USER_ID
+import com.prac.market.core.*
 import com.prac.market.databinding.FragmentSnsSignInBinding
 import com.prac.market.ui.common.layoutBackground
+
 
 class SnsSignInFragment : Fragment() {
 
@@ -42,10 +51,53 @@ class SnsSignInFragment : Fragment() {
         )
 
         kakaoLogin()
+        googleLogin()
         moveToEmailLogin()
 
     }
-    //ToDo Viemodel 객체 accountResult observe 해서 값이 다른 fragment에서도 꺼내지는지 check -> mypage에서 관찰해서 null일시 sns signin page로
+
+    private fun googleLogin() {
+        val TAG ="googleLogin()"
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        val mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
+
+        // Check for existing Google Sign In account, if the user is already signed in
+        // the GoogleSignInAccount will be non-null.
+        val account = GoogleSignIn.getLastSignedInAccount(requireContext())
+        Log.d(TAG, account.toString())
+
+        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
+            Log.d(TAG,result.toString())
+            if(result.resultCode ==RESULT_OK){
+                val data:Intent?=result.data
+                val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+                handleSignInResults(task)
+            }
+        }
+
+        binding.googleLoginBtn.setOnClickListener {
+            val signInIntent = mGoogleSignInClient.signInIntent
+          //  startActivityForResult(signInIntent, RC_SIGN_IN)
+            resultLauncher.launch(signInIntent)
+        }
+
+
+    }
+    private fun handleSignInResults(completedTask : Task<GoogleSignInAccount>){
+        try{
+            val snsName = "google"
+            val account = completedTask.getResult(ApiException::class.java)
+            val email = account?.email.toString()
+            saveEmailInfo(email,snsName)
+        }catch (e:ApiException){
+            Log.w("failed","signInResult:failed code"+e.statusCode)
+        }
+    }
 
     private fun kakaoLogin() {
         val context = requireContext()
@@ -54,7 +106,7 @@ class SnsSignInFragment : Fragment() {
                 Log.e(TAG, "카카오계정으로 로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
-                getUserInfo(context)
+                getUserInfoFromKakaoAccount(context)
             }
         }
         binding.kakaoLoginBtn.setOnClickListener {
@@ -73,7 +125,7 @@ class SnsSignInFragment : Fragment() {
                         UserApiClient.instance.loginWithKakaoAccount(context, callback = callback)
                     } else if (token != null) {
                         Log.i(TAG, "로그인 성공 ${token.accessToken}")
-                        getUserInfo(context)
+                        getUserInfoFromKakaoAccount(context)
 
                     }
                 }
@@ -83,9 +135,9 @@ class SnsSignInFragment : Fragment() {
         }
     }
 
-    private fun getUserInfo(context: Context) {
+    private fun getUserInfoFromKakaoAccount(context: Context) {
         val TAG = "getUserInfo()"
-
+        val snsName = "kakao"
         UserApiClient.instance.me { user, error ->
             if (error != null) {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
@@ -94,7 +146,7 @@ class SnsSignInFragment : Fragment() {
                 //이미 동의한 적이 있는 회원
                 if(user.kakaoAccount?.email!=null){
                     val email = user.kakaoAccount?.email.toString()
-                    saveEmailInfo(email)
+                    saveEmailInfo(email,snsName)
                 }
 
                 var scopes = mutableListOf<String>()
@@ -115,8 +167,11 @@ class SnsSignInFragment : Fragment() {
                                     Log.e(TAG, "사용자 정보 요청 실패", error)
                                 } else if (user != null) {
                                     //사용자 정보 요청 성공
+
                                     val email = user.kakaoAccount?.email.toString()
-                                    saveEmailInfo(email)
+
+
+                                    saveEmailInfo(email,snsName)
                                 }
                             }
                         }
@@ -126,15 +181,20 @@ class SnsSignInFragment : Fragment() {
         }
     }
 
-    private fun saveEmailInfo(email: String) {
+    private fun saveEmailInfo(email: String,snsName : String) {
         //email pref에 보관 후 intent
         Log.d("KAKAO user", email)
 
-        val pref = requireActivity().getSharedPreferences("LoginFragment", 0)
+        val pref = requireActivity().getSharedPreferences(LOGIN, 0)
         val edit = pref.edit()
         edit.putString(KEY_USER_ID, email)
+
+        /*val snsLoginPref = requireActivity().getSharedPreferences(IS_SNS_LOGIN,0)
+        val snsEdit = snsLoginPref.edit()*/
+        edit.putString(IS_SNS_LOGIN,snsName)
         edit.commit()
 
+        Toast.makeText(this.context, LOGIN_SUCCESS, Toast.LENGTH_SHORT).show()
         val intent = Intent(requireContext(), MainActivity::class.java)
                                     startActivity(intent)
     }

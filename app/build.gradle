@@ -85,7 +85,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
-
     //Retrofit & Network
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
@@ -98,8 +97,9 @@ dependencies {
     //EncryptedSharedPreferences
     implementation "androidx.security:security-crypto-ktx:1.1.0-alpha03" //security
 
-    //kakao
+    //kakao,Google
     implementation "com.kakao.sdk:v2-user:2.11.2" // 카카오 로그인
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
 
 
 }

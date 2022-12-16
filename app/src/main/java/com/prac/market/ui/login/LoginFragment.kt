@@ -2,7 +2,6 @@ package com.prac.market.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.prac.market.EventObserver
 import com.prac.market.MainActivity
 import com.prac.market.R
-import com.prac.market.core.DEFAULT_STRING
 import com.prac.market.core.KEY_USER_ID
+import com.prac.market.core.LOGIN
+import com.prac.market.core.LOGIN_SUCCESS
 import com.prac.market.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -66,7 +66,7 @@ class LoginFragment : Fragment() {
                 if (message == LOGIN_SUCCESS) {
                     //email(ID) 정보를 pref 에 보관
                     viewModel.accountResult.value?.login_token?.let {
-                        val pref = requireActivity().getSharedPreferences("LoginFragment", 0)
+                        val pref = requireActivity().getSharedPreferences(LOGIN, 0)
                         val edit = pref.edit()
                         edit.putString(KEY_USER_ID, it)
                         edit.commit()
