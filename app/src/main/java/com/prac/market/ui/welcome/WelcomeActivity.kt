@@ -2,16 +2,10 @@ package com.prac.market.ui.welcome
 
 import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.prac.market.R
-import com.prac.market.core.DEFAULT_STRING
 import com.prac.market.core.IS_FIRST_RUN
-import com.prac.market.core.KEY_USER_ID
-import com.prac.market.core.LOGIN
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

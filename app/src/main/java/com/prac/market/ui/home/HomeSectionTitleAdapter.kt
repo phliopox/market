@@ -1,6 +1,5 @@
 package com.prac.market.ui.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ConcatAdapter
@@ -13,7 +12,6 @@ import com.prac.market.model.Banners
 import com.prac.market.ui.home.itemadapter.PopularProductAdapter
 import com.prac.market.ui.home.itemadapter.QuestBannerAdapter
 import com.prac.market.ui.home.itemadapter.SeasonalProductAdapter
-import kotlin.math.ceil
 
 class HomeSectionTitleAdapter : ListAdapter<Banners, HomeSectionTitleAdapter.HomeSectionTitleViewHolder>(
     HomeDiffUtil()

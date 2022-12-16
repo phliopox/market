@@ -66,16 +66,16 @@ class SnsSignInFragment : Fragment() {
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
-            .build();
+            .build()
         // Build a GoogleSignInClient with the options specified by gso.
-        val mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
+        val mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         Log.d(TAG, account.toString())
 
-        var resultLauncher =
+        val resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 Log.d(TAG, result.toString())
                 if (result.resultCode == RESULT_OK) {
@@ -156,7 +156,7 @@ class SnsSignInFragment : Fragment() {
                     saveEmailInfo(email, snsName)
                 }
 
-                var scopes = mutableListOf<String>()
+                val scopes = mutableListOf<String>()
                 if (user.kakaoAccount?.emailNeedsAgreement == true) {
                     scopes.add("account_email")
                 }
