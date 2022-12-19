@@ -8,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.prac.market.MainActivity
-import com.prac.market.R
 import com.prac.market.core.IS_FIRST_RUN
 import com.prac.market.databinding.FragmentWelcomeBinding
 import dagger.hilt.android.AndroidEntryPoint

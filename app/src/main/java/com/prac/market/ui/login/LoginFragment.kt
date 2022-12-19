@@ -1,20 +1,15 @@
 package com.prac.market.ui.login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.prac.market.EventObserver
+import com.prac.market.ui.common.EventObserver
 import com.prac.market.MainActivity
 import com.prac.market.R
 import com.prac.market.core.KEY_USER_ID

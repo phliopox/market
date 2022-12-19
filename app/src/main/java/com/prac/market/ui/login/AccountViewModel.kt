@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prac.market.Event
+import com.prac.market.ui.common.Event
 import com.prac.market.core.*
 import com.prac.market.database.AccountRepository
-import com.prac.market.database.hosting.Result
+import com.prac.market.model.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

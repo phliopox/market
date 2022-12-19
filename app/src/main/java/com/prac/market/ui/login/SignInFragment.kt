@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.prac.market.EventObserver
+import com.prac.market.ui.common.EventObserver
 import com.prac.market.R
 import com.prac.market.core.SIGN_IN_SUCCESS
 import com.prac.market.databinding.FragmentSignInBinding
@@ -63,7 +63,7 @@ class SignInFragment : Fragment() {
 
     private fun createAccount(validatedEmail: String, validatedPassword: String) {
         viewModel.addNewAccount(validatedEmail,validatedPassword)
-        viewModel.message.observe(viewLifecycleOwner,EventObserver{ message ->
+        viewModel.message.observe(viewLifecycleOwner, EventObserver{ message ->
             Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
             if(message == SIGN_IN_SUCCESS){loginNavigation()}
         })

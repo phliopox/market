@@ -2,6 +2,7 @@ package com.prac.market.database.hosting
 
 import com.prac.market.core.HOSTING_WEB_URL
 import com.prac.market.database.AccountRepository
+import com.prac.market.database.PostRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,5 +41,7 @@ class HostingHiltModule {
     @Provides
     fun provideAccountRepository(hostingApiService: HostingApiService) = AccountRepository(hostingApiService)
 
-
+    @Singleton
+    @Provides
+    fun providePostRepository(hostingApiService: HostingApiService) = PostRepository(hostingApiService)
 }

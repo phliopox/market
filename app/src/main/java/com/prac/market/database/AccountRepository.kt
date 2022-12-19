@@ -2,7 +2,7 @@ package com.prac.market.database
 
 
 import com.prac.market.database.hosting.HostingApiService
-import com.prac.market.database.hosting.Result
+import com.prac.market.model.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

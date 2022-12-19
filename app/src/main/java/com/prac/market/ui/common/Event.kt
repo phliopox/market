@@ -1,6 +1,5 @@
-package com.prac.market
+package com.prac.market.ui.common
 
-import android.util.Log
 import androidx.lifecycle.Observer
 
 class Event<T>(private val content: T) {
