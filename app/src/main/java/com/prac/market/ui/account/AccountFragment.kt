@@ -36,14 +36,18 @@ class AccountFragment : Fragment() {
 
         val loginPref = requireActivity().getSharedPreferences(LOGIN, 0)
         val savedId = loginPref.getString(KEY_USER_ID, DEFAULT_STRING)
+
         moveToLoginFragment(savedId)
 
         binding.account = Account(savedId.toString(), "")
-
         logout(loginPref)
+    }
+    private fun moveToLoginFragment(savedId: String?) {
+        if (savedId.isNullOrEmpty()) {
+            // 저장된 id 없을시 로그인페이지로 이동
+            findNavController().navigate(R.id.action_navigation_account_to_snsSignInFragment)
 
-        //ToDo Viemodel 객체 accountResult observe 해서 값이 다른 fragment에서도 꺼내지는지 check -> mypage에서 관찰해서 null일시 sns signin page로
-
+        }
     }
 
     private fun logout(loginPref: SharedPreferences) {
@@ -52,6 +56,7 @@ class AccountFragment : Fragment() {
             //savedId 정보 삭제
 
             val snsName = loginPref.getString(IS_SNS_LOGIN, DEFAULT_STRING)
+
             if (snsName == "kakao") {
                 Log.d("logout()", "kakao")
                 UserApiClient.instance.logout { error ->
@@ -68,6 +73,7 @@ class AccountFragment : Fragment() {
                 val mGoogleSignInClient = this.let { GoogleSignIn.getClient(requireContext(), gso) }
                 mGoogleSignInClient.signOut()
             }
+
             val editor = loginPref.edit()
             editor.clear()
             editor.commit()
@@ -76,13 +82,6 @@ class AccountFragment : Fragment() {
         }
     }
 
-    private fun moveToLoginFragment(savedId: String?) {
-        if (savedId.isNullOrEmpty()) {
-            // 저장된 id 없을시 로그인페이지로 이동
-            findNavController().navigate(R.id.action_navigation_account_to_loginFragment2)
-
-        }
-    }
 
 
 }

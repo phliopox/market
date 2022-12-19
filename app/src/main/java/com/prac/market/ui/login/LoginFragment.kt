@@ -1,12 +1,16 @@
 package com.prac.market.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,13 +28,11 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: AccountViewModel by viewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        hideBottomNavigationView(true)
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -48,9 +50,12 @@ class LoginFragment : Fragment() {
         Log.d("LoginFragment 1-2", string.toString())
         Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
     }
+
+
     private fun moveToEmailSignInFragment() {
         binding.moveSignInFg.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signInFragment)
+
         }
     }
 
@@ -77,18 +82,5 @@ class LoginFragment : Fragment() {
             })
         }
     }
-    private fun hideBottomNavigationView(bool :Boolean){
-        val bottomNaviView =
-            requireActivity().findViewById<BottomNavigationView>(R.id.navigation_main)
-        if(bool) {
-            bottomNaviView.visibility = View.GONE
-        }else{
-            bottomNaviView.visibility = View.VISIBLE
-        }
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        hideBottomNavigationView(false)
-    }
 }

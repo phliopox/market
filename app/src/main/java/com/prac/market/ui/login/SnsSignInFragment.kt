@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -32,12 +34,14 @@ import com.prac.market.ui.common.layoutBackground
 class SnsSignInFragment : Fragment() {
 
     private lateinit var binding: FragmentSnsSignInBinding
+    private lateinit var callback : OnBackPressedCallback
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        hideBottomNavigationView(true)
         binding = FragmentSnsSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -211,5 +215,36 @@ class SnsSignInFragment : Fragment() {
             findNavController().navigate(R.id.action_snsSignInFragment_to_loginFragment)
 
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callback = object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_snsSignInFragment_to_navigation_home)
+                hideBottomNavigationView(false)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this,callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
+    }
+
+    private fun hideBottomNavigationView(bool :Boolean){
+        val bottomNaviView =
+            requireActivity().findViewById<BottomNavigationView>(R.id.navigation_main)
+        if(bool) {
+            bottomNaviView.visibility = View.GONE
+        }else{
+            bottomNaviView.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        hideBottomNavigationView(false)
     }
 }

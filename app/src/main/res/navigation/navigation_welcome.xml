@@ -6,33 +6,5 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.prac.market.ui.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_signInFragment"
-            app:destination="@id/snsSignInFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/snsSignInFragment"
-        android:name="com.prac.market.ui.login.SnsSignInFragment"
-        android:label="SignInFragment" >
-        <action
-            android:id="@+id/action_snsSignInFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.prac.market.ui.login.SignInFragment"
-        android:label="signInFragment" >
-        <action
-            android:id="@+id/action_signInFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.prac.market.ui.login.LoginFragment"
-        android:label="loginFragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
-    </fragment>
+        android:label="WelcomeFragment" />
 </navigation>
