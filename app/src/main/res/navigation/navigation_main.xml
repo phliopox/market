@@ -51,4 +51,8 @@
             android:id="@+id/action_signInFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_post"
+        android:name="com.prac.market.ui.posts.PostFragment"
+        android:label="CreateFragment" />
 </navigation>

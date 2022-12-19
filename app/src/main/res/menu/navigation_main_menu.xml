@@ -9,9 +9,9 @@
         android:icon="@drawable/selector_market"
         android:title="Market" />
     <item
-        android:id="@+id/navigation_create"
+        android:id="@+id/navigation_post"
         android:icon="@drawable/selector_create"
-        android:title="Create" />
+        android:title="Post" />
     <item
         android:id="@+id/navigation_wish"
         android:icon="@drawable/selector_wish"
