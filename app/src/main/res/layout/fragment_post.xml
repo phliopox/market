@@ -44,7 +44,7 @@
                 android:layout_height="90dp"
                 android:background="@color/market_whitey"
                 app:contentInsetStart="0dp"
-                app:layout_scrollFlags="scroll||enterAlways">
+                app:layout_scrollFlags="scroll|enterAlways">
 
                 <ImageView
                     android:layout_width="match_parent"
