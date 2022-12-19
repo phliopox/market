@@ -15,7 +15,11 @@
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.prac.market.ui.account.AccountFragment"
-        android:label="AccountFragment" />
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_navigation_account_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_wish"
         android:name="com.prac.market.ui.wish.WishFragment"

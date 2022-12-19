@@ -1,6 +1,5 @@
 package com.prac.market.ui.account
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -9,13 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.user.UserApiClient
+import com.prac.market.R
 import com.prac.market.core.*
 import com.prac.market.databinding.FragmentAccountBinding
 import com.prac.market.model.Account
-import com.prac.market.ui.welcome.WelcomeActivity
 
 class AccountFragment : Fragment() {
 
@@ -79,8 +79,10 @@ class AccountFragment : Fragment() {
     private fun moveToLoginFragment(savedId: String?) {
         if (savedId.isNullOrEmpty()) {
             // 저장된 id 없을시 로그인페이지로 이동
-            val intent = Intent(requireContext(), WelcomeActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_navigation_account_to_loginFragment2)
+
         }
     }
+
+
 }

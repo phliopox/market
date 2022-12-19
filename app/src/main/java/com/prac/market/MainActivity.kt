@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kakao.sdk.common.KakaoSdk
-import com.kakao.sdk.common.util.Utility
 import com.prac.market.core.*
 import com.prac.market.ui.welcome.WelcomeActivity
 import dagger.hilt.android.AndroidEntryPoint

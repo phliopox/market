@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.prac.market.EventObserver
 import com.prac.market.MainActivity
 import com.prac.market.R
@@ -29,6 +30,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        hideBottomNavigationView(true)
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,8 +41,6 @@ class LoginFragment : Fragment() {
         emailLogin()
         moveToEmailSignInFragment()
 
-
-
         /*//sharedPreferences check Log
         val string = requireActivity().getSharedPreferences("LoginFragment",0).getString(KEY_USER_ID, DEFAULT_STRING)
 
@@ -48,7 +48,6 @@ class LoginFragment : Fragment() {
         Log.d("LoginFragment 1-2", string.toString())
         Log.d("LoginFragment 1-3", requireActivity().getPreferences(0).getBoolean("isFirst",true).toString())*/
     }
-
     private fun moveToEmailSignInFragment() {
         binding.moveSignInFg.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signInFragment)
@@ -77,5 +76,19 @@ class LoginFragment : Fragment() {
                 }
             })
         }
+    }
+    private fun hideBottomNavigationView(bool :Boolean){
+        val bottomNaviView =
+            requireActivity().findViewById<BottomNavigationView>(R.id.navigation_main)
+        if(bool) {
+            bottomNaviView.visibility = View.GONE
+        }else{
+            bottomNaviView.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        hideBottomNavigationView(false)
     }
 }
