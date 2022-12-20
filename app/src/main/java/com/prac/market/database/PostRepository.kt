@@ -7,12 +7,12 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class PostRepository  @Inject constructor(private val hostingApiService : HostingApiService){
-    suspend fun getPostList(){
+    suspend fun getPostList():List<Post>{
         return withContext(Dispatchers.IO){
             hostingApiService.getPostList()
         }
     }
-    suspend fun getPost(id : Int){
+    suspend fun getPost(id : Int):Post{
         return withContext(Dispatchers.IO){
             hostingApiService.getPost(id)
         }
